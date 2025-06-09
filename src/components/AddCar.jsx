@@ -1,6 +1,8 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { compareAsc, format } from "date-fns";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddCar = () => {
   const { user } = use(AuthContext);
@@ -11,6 +13,24 @@ const AddCar = () => {
     const formData = new FormData(form);
     const addCar = Object.fromEntries(formData);
     console.log(addCar);
+
+    axios
+      .post("http://localhost:3000/cars", addCar)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="container p-3 lg:w-8/12  mx-auto py-5 mb-5">
@@ -41,6 +61,7 @@ const AddCar = () => {
               className="input w-full border "
               placeholder="Location"
               value={format(new Date(), "MM-dd-yyyy-HH:mm")}
+              readOnly
             />
           </fieldset>
           <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
