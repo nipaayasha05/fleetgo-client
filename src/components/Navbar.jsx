@@ -116,37 +116,49 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          <div className="font-semibold">
-            {user ? (
+          <div className="relative group">
+            {user && (
+              <img
+                className={`w-13 rounded-full mr-2 hover:${user.displayName}`}
+                referrerPolicy="no-referrer"
+                src={user?.photoURL}
+                alt=""
+              />
+            )}
+            <p className="absolute invisible   group-hover:visible -mt-3 ml-1">
+              {user?.displayName}
+            </p>
+          </div>
+
+          {user ? (
+            <NavLink
+              onClick={handleUserLogOut}
+              className={({ isActive }) =>
+                isActive ? "border-2  border-amber-300 btn" : ""
+              }
+            >
+              Log Out
+            </NavLink>
+          ) : (
+            <>
               <NavLink
-                onClick={handleUserLogOut}
+                to="/signin"
                 className={({ isActive }) =>
-                  isActive ? "border-2  border-amber-300 " : ""
+                  isActive ? "border-2  border-amber-300 btn mr-2 " : "mr-4 "
                 }
               >
-                Log Out
+                Log In
               </NavLink>
-            ) : (
-              <>
-                <NavLink
-                  to="/signin"
-                  className={({ isActive }) =>
-                    isActive ? "border-2  border-amber-300 btn mr-2 " : "mr-4 "
-                  }
-                >
-                  Log In
-                </NavLink>
-                <NavLink
-                  to="/signup"
-                  className={({ isActive }) =>
-                    isActive ? "border-2  border-amber-300 btn " : ""
-                  }
-                >
-                  Registration
-                </NavLink>
-              </>
-            )}
-          </div>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) =>
+                  isActive ? "border-2  border-amber-300 btn " : ""
+                }
+              >
+                Registration
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </div>
