@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import { createBrowserRouter } from "react-router";
+import AvailableCars from "../components/AvailableCars";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "signin",
         Component: SignIn,
+      },
+      {
+        path: "available-cars",
+        Component: AvailableCars,
       },
     ],
   },
