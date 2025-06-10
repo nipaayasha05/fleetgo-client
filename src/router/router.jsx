@@ -4,8 +4,10 @@ import Home from "../components/Home";
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import { createBrowserRouter } from "react-router";
-import AvailableCars from "../components/AvailableCars";
+
 import AddCar from "../components/AddCar";
+import AvailableCars from "../components/AvailableCar/AvailableCars copy";
+import MyCar from "../components/Mycar/MyCar";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,10 @@ const router = createBrowserRouter([
         path: "add-car",
         Component: AddCar,
       },
-      {},
+      {
+        path: "my-car",
+        element: <MyCar />,
+      },
     ],
   },
 ]);

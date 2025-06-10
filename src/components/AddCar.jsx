@@ -174,7 +174,7 @@ const AddCar = () => {
 
         <input
           type="submit"
-          className="btn w-full  bg-gradient-to-r from-amber-200 via-amber-300 to-amber-200 my-2 border-3 rounded-2xl border-amber-300 "
+          className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-200 "
           value="Submit"
         />
       </form>
