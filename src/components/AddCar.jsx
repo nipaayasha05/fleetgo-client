@@ -39,9 +39,9 @@ const AddCar = () => {
       </h3>
       <form
         onSubmit={handleSubmit}
-        className="fieldset shadow-sm rounded-box shadow-gray-700 p-3 "
+        className="fieldset shadow-sm rounded-box shadow-gray-700 p-3 w-[400px] sm:w-1/2 mx-auto "
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className=" space-y-2">
           <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4 hidden">
             <label className="label  ">email</label>
             <input
@@ -131,14 +131,31 @@ const AddCar = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
-            <label className="label">Description</label>
+            <label className="label">Brand</label>
             <input
+              type="text"
+              name="brand"
+              className="input w-full border "
+              placeholder="Brand"
+              required
+            />
+          </fieldset>
+          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+            <label className="label">Description</label>
+            <textarea
+              type="text"
+              name="description"
+              className="textarea h-24"
+              placeholder="Description"
+              required
+            ></textarea>
+            {/* <input
               type="text"
               name="description"
               className="input w-full border "
               placeholder="Description"
               required
-            />
+            /> */}
           </fieldset>
           <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">bookingCount</label>

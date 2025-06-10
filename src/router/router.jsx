@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "available-cars",
         Component: AvailableCars,
-        loader: () => fetch("http://localhost:3000/cars"),
+        // loader: () => fetch("http://localhost:3000/cars"),
       },
       {
         path: "add-car",

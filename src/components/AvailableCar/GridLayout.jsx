@@ -1,7 +1,7 @@
 import React from "react";
 
 const GridLayout = ({ ava }) => {
-  console.log(ava);
+  // console.log(ava);
   return (
     <div className="card bg-base-100   shadow-sm">
       <figure>
@@ -16,8 +16,10 @@ const GridLayout = ({ ava }) => {
           </p>
         </div>
         <div className="text-start">
+          <p>Brand : {ava.brand} </p>
           <p>{ava.description}</p>
           <p>Price Per Day : {ava.dailyRentalPrice} $</p>
+          <p>Location : {ava.location} </p>
         </div>
 
         <div className="card-actions justify-end">

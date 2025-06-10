@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import GridLayout from "./GridLayout";
 import ListLayout from "./ListLayout";
-import { useLoaderData } from "react-router";
+// import { useLoaderData } from "react-router";
 
-const AvailableCard = () => {
-  const cars = useLoaderData();
-  console.log(cars);
+const AvailableCard = ({ cars }) => {
+  // const cars = useLoaderData();
+  // console.log(cars);
   const [toggle, setToggle] = useState([]);
   const [available, setAvailable] = useState([]);
   // console.log(ava);
@@ -13,6 +13,7 @@ const AvailableCard = () => {
     const availableCars = cars.filter((car1) => car1.availability == "active");
     setAvailable(availableCars);
   }, [cars]);
+
   const handleToggle = () => {
     setToggle(!toggle);
   };
@@ -23,7 +24,7 @@ const AvailableCard = () => {
           onClick={handleToggle}
           className="btn  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  "
         >
-          Toggle View
+          {toggle ? "Grid Views" : "List Views"}
         </button>
         {toggle ? (
           <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-3 gap-7 py-10">
