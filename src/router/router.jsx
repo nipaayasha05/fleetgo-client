@@ -1,6 +1,6 @@
 import React from "react";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../components/Home";
+
 import SignUp from "../components/SignUp";
 import SignIn from "../components/SignIn";
 import { createBrowserRouter } from "react-router";
@@ -9,6 +9,7 @@ import AddCar from "../components/AddCar";
 import AvailableCars from "../components/AvailableCar/AvailableCars copy";
 import MyCar from "../components/Mycar/MyCar";
 import Update from "../components/Mycar/Update";
+import Home from "../components/Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => fetch("http://localhost:3000/recentCar"),
       },
       {
         path: "signup",

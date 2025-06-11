@@ -60,7 +60,7 @@ const AddCar = () => {
               name="date"
               className="input w-full border "
               placeholder="Location"
-              value={format(new Date(), "MM-dd-yyyy-HH:mm")}
+              value={format(new Date(), "dd-MM-yyyy-HH:mm")}
               readOnly
             />
           </fieldset>
