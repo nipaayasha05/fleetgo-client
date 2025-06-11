@@ -106,8 +106,8 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <div className="flex gap-2">
-            <img className="w-25 " src={car} alt="" />
+          <div className="flex gap-1">
+            <img className="w-22 " src={car} alt="" />
             <h3 className=" font-bold text-3xl  ">FleetGo</h3>
           </div>
         </div>

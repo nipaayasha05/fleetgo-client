@@ -3,16 +3,18 @@ import React from "react";
 const ListLayout = ({ ava }) => {
   // console.log(ava);
   return (
-    <div className="card card-side items-center bg-amber-50   shadow-sm m-3">
-      <figure>
+    <div className="card card-side flex items-center bg-amber-50   shadow-sm m-3 ">
+      <figure className="flex-1 p-2">
         <img
-          className=" w-[350px] h-[150px] rounded-box sm:h-[250px] sm:w-[400px] lg:w-[500px] "
+          className=" w-[190px] h-[150px] rounded-box md:h-[250px] md:w-full lg:w-full lg:h-[350px] "
           src={ava.photo}
         />
       </figure>
-      <div className="card-body bg-amber-50">
+      <div className="card-body sm:text-xl bg-amber-50 flex-1">
         <div className="flex  items-center gap-10  ">
-          <h2 className="text-start  card-title">{ava.carModel}</h2>
+          <h2 className="text-start sm:text-2xl sm:font-bold card-title">
+            {ava.carModel}
+          </h2>
 
           <p className=" text-end text-amber-400 font-semibold">
             {ava.availability}

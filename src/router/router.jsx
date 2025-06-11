@@ -8,6 +8,7 @@ import { createBrowserRouter } from "react-router";
 import AddCar from "../components/AddCar";
 import AvailableCars from "../components/AvailableCar/AvailableCars copy";
 import MyCar from "../components/Mycar/MyCar";
+import Update from "../components/Mycar/Update";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
       {
         path: "my-car",
         element: <MyCar />,
+      },
+      {
+        path: "update",
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:3000/cars/${params._id}`),
+        element: <Update />,
       },
     ],
   },

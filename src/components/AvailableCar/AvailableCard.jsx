@@ -22,7 +22,7 @@ const AvailableCard = ({ cars }) => {
       <div className="text-end">
         <button
           onClick={handleToggle}
-          className="btn  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  "
+          className="btn m-3 bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  "
         >
           {toggle ? "Grid Views" : "List Views"}
         </button>

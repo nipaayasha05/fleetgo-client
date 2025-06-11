@@ -1,13 +1,53 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { format } from "date-fns";
 import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { RiDeleteBin2Fill } from "react-icons/ri";
+// import UpdateCar from "./UpdateCar";
+import Update from "./Update";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const MyCarList = ({ carsPromise }) => {
-  const { user } = use(AuthContext);
+  // const { user } = use(AuthContext);
+  const [update, setUpdate] = useState(null);
+  const [deleteCar, setDeleteCar] = useState([]);
   const cars = use(carsPromise);
-  console.log(cars);
+  // const navigate = useNavigate();
+  // console.log(cars);
+
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      // console.log(result.isConfirmed);
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/cars/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+
+              const remainingCars = deleteCar.filter((car) => car._id !== _id);
+              setDeleteCar(remainingCars);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div className="container mx-auto">
       {cars.length == 0 ? (
@@ -73,12 +113,21 @@ const MyCarList = ({ carsPromise }) => {
                     </button>
                   </th>
                   <th>
-                    <button className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  ">
+                    <button
+                      onClick={() => {
+                        setUpdate(car);
+                        document.getElementById("my_modal_2").showModal();
+                      }}
+                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+                    >
                       <FaEdit size={18} />
                     </button>
                   </th>
                   <th>
-                    <button className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  ">
+                    <button
+                      onClick={() => handleDelete(car._id)}
+                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  "
+                    >
                       <RiDeleteBin2Fill size={18} />
                     </button>
                   </th>
@@ -88,6 +137,14 @@ const MyCarList = ({ carsPromise }) => {
           </table>
         </div>
       )}
+      <dialog id="my_modal_2" className="modal">
+        <div className="modal-box  h-[80vh]  overflow-auto">
+          {update && <Update car={update}></Update>}
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button onClick={() => setUpdate(null)}>close</button>
+        </form>
+      </dialog>
     </div>
   );
 };

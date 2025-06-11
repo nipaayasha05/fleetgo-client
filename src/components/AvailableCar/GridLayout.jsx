@@ -7,9 +7,11 @@ const GridLayout = ({ ava }) => {
       <figure>
         <img className="w-full h-[280px]" src={ava.photo} />
       </figure>
-      <div className="card-body bg-amber-50">
+      <div className="card-body sm:text-xl bg-amber-50">
         <div className="flex  items-center gap-10  ">
-          <h2 className="  card-title">{ava.carModel}</h2>
+          <h2 className=" sm:text-2xl sm:font-bold card-title">
+            {ava.carModel}
+          </h2>
 
           <p className=" text-end text-amber-400 font-semibold">
             {ava.availability}
