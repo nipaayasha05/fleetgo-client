@@ -6,10 +6,11 @@ import SignIn from "../components/SignIn";
 import { createBrowserRouter } from "react-router";
 
 import AddCar from "../components/AddCar";
-import AvailableCars from "../components/AvailableCar/AvailableCars copy";
+import AvailableCars from "../components/AvailableCar/AvailableCars";
 import MyCar from "../components/Mycar/MyCar";
 import Update from "../components/Mycar/Update";
 import Home from "../components/Home/Home";
+import CarDetails from "../components/CarDetails/CarDetails";
 
 const router = createBrowserRouter([
   {
@@ -43,10 +44,9 @@ const router = createBrowserRouter([
         element: <MyCar />,
       },
       {
-        path: "update",
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:3000/cars/${params._id}`),
-        element: <Update />,
+        path: "car-details/:id",
+        loader: () => fetch(`http://localhost:3000/cars`),
+        element: <CarDetails></CarDetails>,
       },
     ],
   },

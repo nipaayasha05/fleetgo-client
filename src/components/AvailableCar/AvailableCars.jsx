@@ -7,7 +7,7 @@ import ListLayout from "./ListLayout";
 const AvailableCars = () => {
   const [search, setSearch] = useState("");
   const [cars, setCars] = useState([]);
-  console.log(search);
+  // console.log(search);
   useEffect(() => {
     fetch(`http://localhost:3000/cars?search=${search}`)
       .then((res) => res.json())

@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 const GridLayout = ({ ava }) => {
+  const navigate = useNavigate();
   // console.log(ava);
   return (
     <div className="card bg-base-100   shadow-sm">
@@ -25,7 +27,10 @@ const GridLayout = ({ ava }) => {
         </div>
 
         <div className="card-actions justify-end">
-          <button className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 ">
+          <button
+            onClick={() => navigate(`/car-details/${ava._id}`)}
+            className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+          >
             Book Now
           </button>
         </div>

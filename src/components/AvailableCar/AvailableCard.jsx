@@ -5,12 +5,15 @@ import ListLayout from "./ListLayout";
 
 const AvailableCard = ({ cars }) => {
   // const cars = useLoaderData();
-  // console.log(cars);
+  console.log(cars);
   const [toggle, setToggle] = useState([]);
   const [available, setAvailable] = useState([]);
   // console.log(ava);
   useEffect(() => {
-    const availableCars = cars.filter((car1) => car1.availability == "active");
+    const availableCars = cars.filter(
+      (car1) => car1.availability == "Available"
+    );
+    console.log(availableCars);
     setAvailable(availableCars);
   }, [cars]);
 

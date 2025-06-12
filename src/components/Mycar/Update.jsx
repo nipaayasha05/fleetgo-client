@@ -26,6 +26,7 @@ const Update = ({ car }) => {
     const formData = new FormData(form);
     const addCar = Object.fromEntries(formData);
     const id = car._id;
+    document.getElementById("my_modal_2").close();
 
     console.log(addCar);
 

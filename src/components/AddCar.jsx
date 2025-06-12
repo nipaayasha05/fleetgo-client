@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -14,26 +14,24 @@ const AddCar = () => {
     const addCar = Object.fromEntries(formData);
     console.log(addCar);
 
-    axios
-      .post("http://localhost:3000/cars", addCar)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    axios.post("http://localhost:3000/cars", addCar).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+    form.reset().catch((error) => {
+      console.log(error);
+    });
   };
   return (
-    <div className="container p-3 lg:w-8/12  mx-auto py-5 mb-5">
+    <div className="container p-3    mx-auto py-5 mb-5">
       <h3 className="text-3xl font-bold  text-center py-10">
         Add Your Car Here
       </h3>
@@ -95,7 +93,7 @@ const AddCar = () => {
                   value="active"
                   defaultChecked
                 />
-                <p>Active</p>
+                <p> Available</p>
               </div>
 
               <div className="flex gap-2 text-gray-500  ">
@@ -106,7 +104,7 @@ const AddCar = () => {
                   value="inactive"
                   defaultChecked
                 />
-                <p>Inactive</p>
+                <p> Unavailable</p>
               </div>
             </div>
           </fieldset>
