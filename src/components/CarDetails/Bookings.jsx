@@ -7,6 +7,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 const Bookings = ({ cars, bookings }) => {
   const [startDate, setStartDate] = useState(null);
@@ -15,9 +16,9 @@ const Bookings = ({ cars, bookings }) => {
   const { user } = use(AuthContext);
   const { id } = useParams();
   const carBookings = cars.find((car) => car._id == id);
-  console.log(carBookings);
-  console.log(cars);
-  console.log(bookings);
+  // console.log(carBookings);
+  // console.log(cars);
+  // console.log(bookings);
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -25,13 +26,23 @@ const Bookings = ({ cars, bookings }) => {
     const formData = new FormData(form);
     const booking = Object.fromEntries(formData);
     console.log(booking);
+    document.getElementById("my_modal_2").close();
+
+    axios
+      .post("http://localhost:3000/bookings", booking)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   const handleCancel = () => {
     document.getElementById("my_modal_2").close();
   };
 
   return (
-    <div className="space-y-2 m-5">
+    <div className="space-y-2 m-5   sm:my-5 my-44 ">
       <p className="flex items-center gap-2 font-bold text-2xl">
         <FaCarAlt />
         Car Booking Form
@@ -128,7 +139,17 @@ const Bookings = ({ cars, bookings }) => {
                 />
               </fieldset>
             </div>
-
+            <fieldset className="fieldset hidden">
+              <label className="label">Photo URL</label>
+              <input
+                type="text"
+                name="photo"
+                className="input w-full border "
+                placeholder="Photo URL"
+                value={carBookings.photo}
+                readOnly
+              />
+            </fieldset>
             <div>
               <p className="text-sm   font-semibold ">Return Date</p>
               <fieldset className=" fieldset input input-border w-full">

@@ -6,8 +6,8 @@ const CarDetails = () => {
   const cars = useLoaderData();
   const { id } = useParams();
   const carsDetails = cars.find((car) => car._id == id);
-  console.log(cars);
-  console.log(carsDetails);
+  // console.log(cars);
+  // console.log(carsDetails);
 
   const [bookings, setBookings] = useState(null);
   const {
@@ -85,7 +85,7 @@ const CarDetails = () => {
             Book Now
           </button>
           <dialog id="my_modal_2" className="modal">
-            <div className="modal-box h-[80vh] overflow-auto">
+            <div className="modal-box   overflow-auto">
               {bookings && (
                 <Bookings cars={cars} bookings={bookings}></Bookings>
               )}

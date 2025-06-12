@@ -2,7 +2,7 @@ import { formatDistance, parse } from "date-fns";
 import React from "react";
 
 const RecentCar = ({ car }) => {
-  console.log(car);
+  // console.log(car);
   const {
     availability,
     carModel,

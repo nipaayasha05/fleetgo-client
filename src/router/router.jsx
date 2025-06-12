@@ -11,6 +11,7 @@ import MyCar from "../components/Mycar/MyCar";
 import Update from "../components/Mycar/Update";
 import Home from "../components/Home/Home";
 import CarDetails from "../components/CarDetails/CarDetails";
+import MyBookings from "../components/MyBookings/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
         path: "car-details/:id",
         loader: () => fetch(`http://localhost:3000/cars`),
         element: <CarDetails></CarDetails>,
+      },
+      {
+        path: "my-bookings",
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:3000/bookings?email=${params.email}`),
+        element: <MyBookings></MyBookings>,
       },
     ],
   },

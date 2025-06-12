@@ -147,13 +147,6 @@ const AddCar = () => {
               placeholder="Description"
               required
             ></textarea>
-            {/* <input
-              type="text"
-              name="description"
-              className="input w-full border "
-              placeholder="Description"
-              required
-            /> */}
           </fieldset>
           <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">bookingCount</label>

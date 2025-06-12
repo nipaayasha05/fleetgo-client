@@ -5,7 +5,7 @@ import ListLayout from "./ListLayout";
 
 const AvailableCard = ({ cars }) => {
   // const cars = useLoaderData();
-  console.log(cars);
+  // console.log(cars);
   const [toggle, setToggle] = useState([]);
   const [available, setAvailable] = useState([]);
   // console.log(ava);
@@ -13,7 +13,7 @@ const AvailableCard = ({ cars }) => {
     const availableCars = cars.filter(
       (car1) => car1.availability == "Available"
     );
-    console.log(availableCars);
+    // console.log(availableCars);
     setAvailable(availableCars);
   }, [cars]);
 
