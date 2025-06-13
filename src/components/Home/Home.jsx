@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router";
 import RecentCar from "./RecentCar";
+import Banner from "./Banner";
 
 const Home = () => {
   const recentCars = useLoaderData();
@@ -8,6 +9,7 @@ const Home = () => {
   return (
     <div>
       {" "}
+      <Banner></Banner>
       <h3 className="text-3xl text-center font-bold py-5">
         Latest Car Arrivals
       </h3>
