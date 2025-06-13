@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import RecentCar from "./RecentCar";
 import Banner from "./Banner";
 import About from "./About";
+import Animation from "./Animation";
 
 const Home = () => {
   const recentCars = useLoaderData();
@@ -35,6 +36,9 @@ const Home = () => {
         {recentCars.map((car) => (
           <RecentCar car={car} key={car._id}></RecentCar>
         ))}
+      </div>
+      <div>
+        <Animation></Animation>
       </div>
     </div>
   );
