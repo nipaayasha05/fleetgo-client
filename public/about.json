@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Wide Variety of Cars",
+    "description": "Choose from compact city cars, fuel-efficient hatchbacks, spacious SUVs, or premium luxury sedans — perfect for solo trips, family vacations, or business travel.",
+    "icon": "https://cdn.pixabay.com/photo/2019/12/27/06/05/cartoon-4721755_640.png"
+  },
+  {
+    "id": 2,
+    "title": "Affordable Prices",
+    "description": "Get the best value for your money with our competitive daily rates, seasonal discounts, and transparent pricing — no hidden charges, ever.",
+    "icon": "https://cdn.pixabay.com/photo/2025/06/01/21/01/money-9635944_1280.png"
+  },
+  {
+    "id": 3,
+    "title": "Easy Booking Process",
+    "description": "Book your ride in minutes with our user-friendly platform — select your car, set your dates, and confirm your reservation effortlessly from any device.",
+    "icon": "https://cdn.pixabay.com/photo/2017/08/04/07/57/calender-2579300_960_720.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Customer Support",
+    "description": "Our dedicated support team is available 24/7 via chat, email, or phone to assist you with bookings, vehicle queries, roadside help, and more.",
+    "icon": "https://cdn.pixabay.com/photo/2016/11/17/16/06/icons-1831931_640.png"
+  }
+]
