@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { format } from "date-fns";
 import { FaEdit, FaInfoCircle } from "react-icons/fa";
@@ -9,13 +9,17 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyCarList = ({ carsPromise }) => {
-  // const { user } = use(AuthContext);
+  const { user } = use(AuthContext);
   const [update, setUpdate] = useState(null);
   const [deleteCar, setDeleteCar] = useState([]);
+
   const cars = use(carsPromise);
+  const [allData, setAllData] = useState(cars);
   // const navigate = useNavigate();
   // console.log(cars);
-
+  useEffect(() => {
+    setAllData(cars);
+  }, []);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -33,6 +37,7 @@ const MyCarList = ({ carsPromise }) => {
         })
           .then((res) => res.json())
           .then((data) => {
+            refetch();
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
@@ -46,6 +51,13 @@ const MyCarList = ({ carsPromise }) => {
           });
       }
     });
+  };
+  // console.log(allData);
+  console.log(cars);
+  const refetch = () => {
+    fetch(`http://localhost:3000/cars?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAllData(data));
   };
 
   return (
@@ -81,7 +93,7 @@ const MyCarList = ({ carsPromise }) => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {cars.map((car, index) => (
+              {allData.map((car, index) => (
                 <tr
                   className="lg:text-xl md:text-sm"
                   car={car}
@@ -106,7 +118,7 @@ const MyCarList = ({ carsPromise }) => {
                   <td>{car.dailyRentalPrice} $</td>
                   <td>{car.bookingCount}</td>
                   <td>{car.availability}</td>
-                  <td>{format(new Date(), "MM-dd-yyyy-HH:mm")}</td>
+                  <td>{car.date}</td>
                   <th>
                     <button className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 ">
                       <FaInfoCircle size={18} />
@@ -139,7 +151,13 @@ const MyCarList = ({ carsPromise }) => {
       )}
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box  h-[80vh]  overflow-auto">
-          {update && <Update car={update}></Update>}
+          {update && (
+            <Update
+              setAllData={setAllData}
+              refetch={refetch}
+              car={update}
+            ></Update>
+          )}
         </div>
         <form method="dialog" className="modal-backdrop">
           <button onClick={() => setUpdate(null)}>close</button>

@@ -7,7 +7,7 @@ import Animation from "./Animation";
 
 const Home = () => {
   const recentCars = useLoaderData();
-  console.log(recentCars);
+  // console.log(recentCars);
 
   const [about, setAbout] = useState([]);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import carAnimation from "../../assets/lotties/Animation - 1749808032240.json";
+import carAnimation from "../../assets/lotties/animation.json";
 import Lottie from "lottie-react";
 
 const Animation = () => {

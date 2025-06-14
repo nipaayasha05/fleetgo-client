@@ -14,21 +14,24 @@ const AddCar = () => {
     const addCar = Object.fromEntries(formData);
     console.log(addCar);
 
-    axios.post("http://localhost:3000/cars", addCar).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
-    form.reset().catch((error) => {
-      console.log(error);
-    });
+    axios
+      .post("http://localhost:3000/cars", addCar)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="container p-3    mx-auto py-5 mb-5">
@@ -90,7 +93,7 @@ const AddCar = () => {
                   type="radio"
                   name="availability"
                   className="radio radio-neutral radio-xs"
-                  value="active"
+                  value="Available"
                   defaultChecked
                 />
                 <p> Available</p>
@@ -101,7 +104,7 @@ const AddCar = () => {
                   type="radio"
                   name="availability"
                   className="radio radio-neutral radio-xs"
-                  value="inactive"
+                  value="Unavailable"
                   defaultChecked
                 />
                 <p> Unavailable</p>

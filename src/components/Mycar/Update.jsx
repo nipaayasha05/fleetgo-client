@@ -1,24 +1,13 @@
 import { format } from "date-fns";
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
-const Update = ({ car }) => {
+const Update = ({ car, refetch }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
   console.log(car);
-
-  // console.log(data);
-  // const data = useParams();
-
-  // const [updated, setUpdated] = useState([]);
-  // const { _id } = updated();
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/cars/${_id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // }, [_id]);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -40,6 +29,7 @@ const Update = ({ car }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
+          refetch();
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -51,6 +41,12 @@ const Update = ({ car }) => {
         // navigate("/my-car");
       });
   };
+
+  // const refetch = () => {
+  //   fetch(`http://localhost:3000/cars?email=${user.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // };
   return (
     <div>
       <div className=" py-5 mb-5">
