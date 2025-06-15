@@ -4,12 +4,14 @@ import RecentCar from "./RecentCar";
 import Banner from "./Banner";
 import About from "./About";
 import Animation from "./Animation";
+import Offers from "./Offers";
 
 const Home = () => {
   const recentCars = useLoaderData();
   // console.log(recentCars);
 
   const [about, setAbout] = useState([]);
+  const [offers, setOffers] = useState([]);
 
   useEffect(() => {
     fetch("/about.json")
@@ -18,6 +20,13 @@ const Home = () => {
         setAbout(data);
       });
   }, []);
+
+  useEffect(() => {
+    fetch("/offer.json")
+      .then((res) => res.json())
+      .then((data) => setOffers(data));
+  }, []);
+
   return (
     <div>
       {" "}
@@ -39,6 +48,12 @@ const Home = () => {
       </div>
       <div>
         <Animation></Animation>
+      </div>
+      <div>
+        <h3 className="text-3xl text-center font-bold py-5">
+          Limited-Time Deals
+        </h3>
+        <Offers offers={offers}></Offers>
       </div>
     </div>
   );

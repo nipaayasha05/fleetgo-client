@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Weekend Getaway – 15% Off!",
+    "description": "Escape the city and enjoy a relaxing weekend with 15% off on all rentals. Perfect for quick trips or spontaneous adventures. Book on Friday, Saturday, or Sunday and hit the road with great savings!"
+  },
+  {
+    "id": 2,
+    "title": "Business Trip Special – Free GPS!",
+    "description": "Make your business travel smooth and stress-free. Rent any executive car during weekdays and get a GPS device for free. Arrive on time and navigate easily to your destination—no extra cost!"
+  },
+  {
+    "id": 3,
+    "title": "Holiday Season – Luxury Cars at $99/day",
+    "description": "Celebrate the holidays in style with luxury cars starting at just $99/day. Choose from BMW, Audi, or Mercedes and drive comfortably. Limited-time festive offer—book now and travel in class!"
+  },
+  {
+    "id": 4,
+    "title": "Long Drive Bonus – 20% Off for 5+ Days",
+    "description": "Planning a long road trip? Book a car for 5 or more days and get 20% off instantly. Enjoy comfort, space, and savings on your next adventure. Ideal for family vacations or tours."
+  }
+]

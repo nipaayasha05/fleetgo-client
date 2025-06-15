@@ -1,12 +1,16 @@
 import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { auth } from "../firebase/firebase.init";
 import toast from "react-hot-toast";
 
 const SignIn = () => {
   const { signInUser, googleSignIn, provider } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || "/";
+  console.log(location);
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const handleSignIn = (e) => {
@@ -22,6 +26,9 @@ const SignIn = () => {
       .then((res) => {
         console.log(res.user);
         setSuccess(true);
+
+        toast.success("User LogIn Successfully");
+        navigate(from ? from : "/");
       })
       .catch((error) => {
         console.log(error);
@@ -36,6 +43,7 @@ const SignIn = () => {
         toast.success("User LogIn Successfully");
         setSuccess(true);
         setErrorMessage("");
+        navigate(from ? from : "/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -44,7 +52,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-base-100 m-5  border  mx-auto my-30 max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
         <h1 className="text-5xl font-bold">Sign Up now!</h1>
         <form onSubmit={handleSignIn} className="fieldset">

@@ -30,7 +30,10 @@ const Bookings = ({ cars, bookings }) => {
     document.getElementById("my_modal_2").close();
 
     axios
-      .post("http://localhost:3000/bookings", booking)
+      .post(
+        "https://assignment-11-server-chi-gray.vercel.app/bookings",
+        booking
+      )
       .then((res) => {
         console.log(res);
         handleCount();
@@ -44,13 +47,16 @@ const Bookings = ({ cars, bookings }) => {
   };
   // console.log(id);
   const handleCount = () => {
-    fetch(`http://localhost:3000/cars/increment-booking/${carBookings._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(),
-    })
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/cars/increment-booking/${carBookings._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.modifiedCount) {
@@ -61,7 +67,7 @@ const Bookings = ({ cars, bookings }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          fetch("http://localhost:3000/cars")
+          fetch("https://assignment-11-server-chi-gray.vercel.app/cars")
             .then((res) => res.json())
             .then((data) => console.log(data));
         }
@@ -69,7 +75,7 @@ const Bookings = ({ cars, bookings }) => {
       });
   };
 
-  // fetch("http://localhost:3000/cars").then(res=>res.json()).then(data=>console.log(data))
+  // fetch("https://assignment-11-server-chi-gray.vercel.app/cars").then(res=>res.json()).then(data=>console.log(data))
 
   return (
     <div className="space-y-2 m-5   sm:my-5 my-44 ">

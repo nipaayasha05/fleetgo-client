@@ -35,12 +35,15 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
     document.getElementById("my_modal_2").close();
 
     axios
-      .patch(`http://localhost:3000/bookings/${id}`, {
-        startDate: format(startDate, "dd-MM-yyyy HH:mm"),
-        endDate: format(endDate, "dd-MM-yyyy HH:mm"),
-        price,
-        status: "confirmed",
-      })
+      .patch(
+        `https://assignment-11-server-chi-gray.vercel.app/bookings/${id}`,
+        {
+          startDate: format(startDate, "dd-MM-yyyy HH:mm"),
+          endDate: format(endDate, "dd-MM-yyyy HH:mm"),
+          price,
+          status: "confirmed",
+        }
+      )
       .then((res) => {
         console.log(res);
         if (res.data.modifiedCount) {
@@ -60,7 +63,9 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   };
 
   const refetch = () => {
-    fetch(`http://localhost:3000/bookings/?email=${user.email}`)
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/bookings/?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyBooking(data));
   };

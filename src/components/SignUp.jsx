@@ -8,7 +8,8 @@ import { auth } from "../firebase/firebase.init";
 const SignUp = () => {
   const { createUser, googleSignIn, provider, updateUser, setUser } =
     use(AuthContext);
-
+  const navigate = useNavigate();
+  const from = location.state || "/";
   // const navigate = useNavigate();
   //   console.log(createUser);
   const [success, setSuccess] = useState(false);
@@ -23,6 +24,31 @@ const SignUp = () => {
     console.log(email, password, name, photo);
     setSuccess(false);
     setErrorMessage("");
+
+    if (password.length < 6) {
+      setErrorMessage("password must be grater than 6");
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      setErrorMessage("password must contain at least one lower case letter");
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      setErrorMessage("password must contain at least one upper case letter");
+      return;
+    }
+
+    if (!/\d/.test(password)) {
+      setErrorMessage("password must contain at least one number");
+      return;
+    }
+
+    if (!/[@#$]/.test(password)) {
+      setErrorMessage("password must contain at least one special character");
+      return;
+    }
 
     // create user in firebase
     createUser(email, password)
@@ -40,6 +66,7 @@ const SignUp = () => {
         console.log(res.user);
         toast.success("User LogIn Successfully");
         setSuccess(true);
+        navigate(from ? from : "/");
       })
       .catch((error) => {
         console.log(error);
@@ -53,6 +80,7 @@ const SignUp = () => {
         toast.success("User LogIn Successfully");
         setSuccess(true);
         setErrorMessage("");
+        navigate(from ? from : "/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -61,7 +89,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-base-100 m-5  border  mx-auto my-30    max-w-sm shrink-0 shadow-2xl  ">
       <div className="card-body">
         <h1 className="text-5xl font-bold">Sign Up now!</h1>
         <form onSubmit={handleSignUp} className="fieldset">

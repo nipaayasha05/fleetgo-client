@@ -5,7 +5,7 @@ import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 // import UpdateCar from "./UpdateCar";
 import Update from "./Update";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyCarList = ({ carsPromise }) => {
@@ -32,7 +32,7 @@ const MyCarList = ({ carsPromise }) => {
     }).then((result) => {
       // console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/cars/${_id}`, {
+        fetch(`https://assignment-11-server-chi-gray.vercel.app/cars/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -55,7 +55,9 @@ const MyCarList = ({ carsPromise }) => {
   // console.log(allData);
   // console.log(cars);
   const refetch = () => {
-    fetch(`http://localhost:3000/cars?email=${user.email}`)
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/cars?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setAllData(data));
   };
@@ -65,9 +67,12 @@ const MyCarList = ({ carsPromise }) => {
       {cars.length == 0 ? (
         <div>
           <p className="text-2xl font-bold text-center">Add A Car</p>
-          <button className="bg-gradient-to-r from-amber-300  to-amber-400 my-2 border-3 rounded-2xl border-amber-300 ">
+          <NavLink
+            to="/available-cars"
+            className="bg-gradient-to-r from-amber-300  to-amber-400 my-2 border-3 rounded-2xl border-amber-300 "
+          >
             Add Car
-          </button>
+          </NavLink>
         </div>
       ) : (
         <div className="overflow-x-auto py-5">

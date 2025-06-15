@@ -12,7 +12,9 @@ const MyBookings = () => {
   //  const [update, setUpdate] = useState(null);
   // const myBookings = use(bookingsPromise);
   useEffect(() => {
-    fetch(`http://localhost:3000/bookings?email=${user?.email}`)
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/bookings?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyBooking(data));
   }, [user]);

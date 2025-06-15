@@ -19,7 +19,7 @@ const Update = ({ car, refetch }) => {
 
     console.log(addCar);
 
-    fetch(`http://localhost:3000/cars/${id}`, {
+    fetch(`https://assignment-11-server-chi-gray.vercel.app/cars/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -43,12 +43,12 @@ const Update = ({ car, refetch }) => {
   };
 
   // const refetch = () => {
-  //   fetch(`http://localhost:3000/cars?email=${user.email}`)
+  //   fetch(`https://assignment-11-server-chi-gray.vercel.app/cars?email=${user.email}`)
   //     .then((res) => res.json())
   //     .then((data) => console.log(data));
   // };
   return (
-    <div>
+    <div className=" ">
       <div className=" py-5 mb-5">
         <h3 className="text-3xl font-bold  text-center py-10">
           Update Your Car Here

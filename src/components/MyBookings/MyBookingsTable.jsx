@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { ImBin, ImCalendar } from "react-icons/im";
+import Swal from "sweetalert2";
 // import MyBookingsUpdate from "./MyBookingsUpdate";
 
 const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
-  console.log(myBooking);
-  const [cancel, setCancel] = useState([]);
+  // console.log(myBooking);
+  // const [cancel, setCancel] = useState([]);
   // const [update, setUpdate] = useState(null);
   const { photo, carModel, _id, email, startDate, endDate, price, status } =
     myBooking;
@@ -13,15 +14,25 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
   const handleCancel = () => {
     console.log("cancel");
     axios
-      .patch(`http://localhost:3000/bookings/${_id}`, {
-        startDate,
-        endDate,
-        price,
-        status: "Cancelled",
-      })
+      .patch(
+        `https://assignment-11-server-chi-gray.vercel.app/bookings/${_id}`,
+        {
+          startDate,
+          endDate,
+          price,
+          status: "Cancelled",
+        }
+      )
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           refetch();
         }
       })
@@ -31,7 +42,9 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
   };
 
   const refetch = () => {
-    fetch(`http://localhost:3000/bookings/?email=${email}`)
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/bookings/?email=${email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyBooking(data));
   };
@@ -50,7 +63,9 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
         className={` mt-10 ${
           status === "Confirmed"
             ? "bg-green-400 text-white btn rounded-full"
-            : "bg-red-400 text-white btn rounded-full"
+            : status === "Cancelled"
+            ? "bg-red-400 text-white btn rounded-full"
+            : "bg-green-400 text-white btn rounded-full"
         }`}
       >
         {status}

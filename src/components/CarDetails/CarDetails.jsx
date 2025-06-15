@@ -29,7 +29,7 @@ const CarDetails = () => {
   // const handleCount = () => {
   //   const update = count + 1;
   //   setCount(update);
-  //   fetch(`http://localhost:3000/cars/${id}`, {
+  //   fetch(`https://assignment-11-server-chi-gray.vercel.app/cars/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "content-type": "application/json",

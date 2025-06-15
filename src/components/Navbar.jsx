@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { NavLink, useLocation, useNavigate } from "react-router";
-import car from "../assets/image/car.png";
+import { Navigate, NavLink, useLocation, useNavigate } from "react-router";
+import car from "../assets/image/car10.png";
 
 const Navbar = () => {
   const { user, handleLogOut } = use(AuthContext);
@@ -14,7 +14,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "border-2  border-amber-300 " : ""
+            isActive ? "border-2  border-amber-300 rounded-2xl" : ""
           }
         >
           Home
@@ -24,7 +24,7 @@ const Navbar = () => {
         <NavLink
           to="/available-cars"
           className={({ isActive }) =>
-            isActive ? "border-2  border-amber-300  " : ""
+            isActive ? "border-2  border-amber-300 rounded-2xl " : ""
           }
         >
           Available Cars
@@ -37,7 +37,7 @@ const Navbar = () => {
             <NavLink
               to="/add-car"
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 " : ""
+                isActive ? "border-2  border-amber-300 rounded-2xl" : ""
               }
             >
               Add Car
@@ -47,7 +47,7 @@ const Navbar = () => {
             <NavLink
               to="/my-car"
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 btn" : ""
+                isActive ? "border-2  border-amber-300 rounded-2xl btn" : ""
               }
             >
               My Cars
@@ -57,7 +57,7 @@ const Navbar = () => {
             <NavLink
               to="/my-bookings"
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 btn" : ""
+                isActive ? "border-2  border-amber-300 rounded-2xl btn" : ""
               }
             >
               {" "}
@@ -71,6 +71,7 @@ const Navbar = () => {
 
   const handleUserLogOut = () => {
     handleLogOut();
+    return <Navigate to="/signin" state={pathname}></Navigate>;
   };
 
   return (
@@ -106,9 +107,14 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <div className="flex gap-1">
-            <img className="w-22 " src={car} alt="" />
-            <h3 className=" font-bold text-3xl  ">FleetGo</h3>
+          <div className="flex items-center">
+            <img className="w-25  " src={car} alt="" />
+            <h3 className=" font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-black  to-amber-500 ">
+              Fleet
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500  to-amber-700 ">
+                Go
+              </span>
+            </h3>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex   font-semibold">
@@ -134,7 +140,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleUserLogOut}
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 btn" : ""
+                isActive ? "border-2  border-amber-300 rounded-2xl btn" : ""
               }
             >
               Log Out

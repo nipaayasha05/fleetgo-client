@@ -1,46 +1,49 @@
 import React, { useEffect, useState } from "react";
 
 import AvailableCard from "./AvailableCard";
-import GridLayout from "./GridLayout";
-import ListLayout from "./ListLayout";
-import { formatDistance, parse } from "date-fns";
+// import GridLayout from "./GridLayout";
+// import ListLayout from "./ListLayout";
+import { formatDistance, parse, set } from "date-fns";
 
 const AvailableCars = () => {
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const [cars, setCars] = useState([]);
-  const [sort, setSort] = useState([]);
+  // const [sort, setSort] = useState([]);
   // console.log(search);
-  useEffect(() => {
-    fetch(`http://localhost:3000/cars?search=${search}`)
-      .then((res) => res.json())
-      .then((data) => setCars(data));
-  }, [search]);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://assignment-11-server-chi-gray.vercel.app/cars?search=${search}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setCars(data));
+  // }, [search]);
 
-  const handleSort = (type) => {
-    setSort(type);
-    if (type === "Highest Price") {
-      const sortedByPrice = [...cars].sort(
-        (a, b) => b.dailyRentalPrice - a.dailyRentalPrice
-      );
-      setCars(sortedByPrice);
-      console.log(sortedByPrice);
-    }
+  // const handleSort = (type) => {
+  //   setSort(type);
+  //   if (type === "Highest Price") {
+  //     const sortedByPrice = [...cars].sort(
+  //       (a, b) => b.dailyRentalPrice - a.dailyRentalPrice
+  //     );
+  //     setCars(sortedByPrice);
+  //     console.log(sortedByPrice);
+  //   }
 
-    if (type === "Newest First") {
-      const sortedByDate = [...cars].sort((a, b) => {
-        const dateA = parse(a.date, "dd-MM-yyyy-HH:mm", new Date());
-        const dateB = parse(b.date, "dd-MM-yyyy-HH:mm", new Date());
-        return dateB - dateA;
-      });
-      setCars(sortedByDate);
-      console.log(sortedByDate);
-    }
-  };
+  //   if (type === "Newest First") {
+  //     const sortedByDate = [...cars].sort((a, b) => {
+  //       const dateA = parse(a.date, "dd-MM-yyyy-HH:mm", new Date());
+  //       const dateB = parse(b.date, "dd-MM-yyyy-HH:mm", new Date());
+  //       return dateB - dateA;
+  //     });
+  //     setCars(sortedByDate);
+  //     console.log(sortedByDate);
+  //   }
+  // };
 
   return (
     <div className="container mx-auto">
-      <h3 className="text-3xl font-bold text-center mt-10">Available Cars</h3>
-      <div className="text-center mt-7">
+      {/* <h3 className="text-3xl font-bold text-center mt-10">Available Cars</h3> */}
+
+      {/* <div className="text-center ">
         <label className="input">
           <svg
             className="h-[1em] opacity-50"
@@ -66,7 +69,7 @@ const AvailableCars = () => {
           />
         </label>
       </div>
-      <div>
+      <div className=" mt-7">
         <details className="dropdown">
           <summary className="btn m-1">Sort By {sort ? sort : ""}</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
@@ -78,8 +81,8 @@ const AvailableCars = () => {
             </li>
           </ul>
         </details>
-      </div>
-      <AvailableCard cars={cars}></AvailableCard>
+      </div> */}
+      <AvailableCard cars={cars} setCars={setCars}></AvailableCard>
     </div>
   );
 };

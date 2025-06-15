@@ -12,6 +12,9 @@ import Update from "../components/Mycar/Update";
 import Home from "../components/Home/Home";
 import CarDetails from "../components/CarDetails/CarDetails";
 import MyBookings from "../components/MyBookings/MyBookings";
+import Loader from "../components/Loader";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,9 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/recentCar"),
+        loader: () =>
+          fetch("https://assignment-11-server-chi-gray.vercel.app/recentCar"),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "signup",
@@ -34,28 +39,48 @@ const router = createBrowserRouter([
       {
         path: "available-cars",
         Component: AvailableCars,
-        // loader: () => fetch("http://localhost:3000/cars"),
       },
       {
         path: "add-car",
-        Component: AddCar,
+        element: (
+          <PrivateRoute>
+            <AddCar></AddCar>
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-car",
-        element: <MyCar />,
+        element: (
+          <PrivateRoute>
+            <MyCar />
+          </PrivateRoute>
+        ),
       },
       {
         path: "car-details/:id",
-        loader: () => fetch(`http://localhost:3000/cars`),
-        element: <CarDetails></CarDetails>,
+        loader: () =>
+          fetch(`https://assignment-11-server-chi-gray.vercel.app/cars`),
+        element: (
+          <PrivateRoute>
+            <CarDetails></CarDetails>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "my-bookings",
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:3000/bookings?email=${params.email}`),
-        element: <MyBookings></MyBookings>,
+
+        element: (
+          <PrivateRoute>
+            <MyBookings></MyBookings>
+          </PrivateRoute>
+        ),
       },
     ],
+  },
+  {
+    path: "/*",
+    Component: ErrorPage,
   },
 ]);
 
