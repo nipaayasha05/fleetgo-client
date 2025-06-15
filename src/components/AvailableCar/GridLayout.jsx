@@ -24,6 +24,7 @@ const GridLayout = ({ ava }) => {
           <p>{ava.description}</p>
           <p>Price Per Day : {ava.dailyRentalPrice} $</p>
           <p>Location : {ava.location} </p>
+          <p>Location : {ava.date} </p>
         </div>
 
         <div className="card-actions justify-end">

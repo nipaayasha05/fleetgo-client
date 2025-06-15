@@ -8,7 +8,7 @@ const Update = ({ car, refetch }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
   console.log(car);
-
+  // const [count, setCount] = useState(0);
   const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;

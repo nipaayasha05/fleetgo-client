@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Bookings = ({ cars, bookings }) => {
   const [startDate, setStartDate] = useState(null);
@@ -19,7 +20,7 @@ const Bookings = ({ cars, bookings }) => {
   // console.log(carBookings);
   // console.log(cars);
   // console.log(bookings);
-
+  // const [count, setCount] = useState(0);
   const handleBooking = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,6 +33,7 @@ const Bookings = ({ cars, bookings }) => {
       .post("http://localhost:3000/bookings", booking)
       .then((res) => {
         console.log(res);
+        handleCount();
       })
       .catch((error) => {
         console.log(error);
@@ -40,6 +42,34 @@ const Bookings = ({ cars, bookings }) => {
   const handleCancel = () => {
     document.getElementById("my_modal_2").close();
   };
+  // console.log(id);
+  const handleCount = () => {
+    fetch(`http://localhost:3000/cars/increment-booking/${carBookings._id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.modifiedCount) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Blog updated successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          fetch("http://localhost:3000/cars")
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+        }
+        // navigate("/my-car");
+      });
+  };
+
+  // fetch("http://localhost:3000/cars").then(res=>res.json()).then(data=>console.log(data))
 
   return (
     <div className="space-y-2 m-5   sm:my-5 my-44 ">

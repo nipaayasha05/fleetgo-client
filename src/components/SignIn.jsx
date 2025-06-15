@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
@@ -7,21 +7,25 @@ import toast from "react-hot-toast";
 
 const SignIn = () => {
   const { signInUser, googleSignIn, provider } = use(AuthContext);
-
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-
+    setSuccess(false);
+    setErrorMessage("");
     // signInUser
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
+        setSuccess(true);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -30,8 +34,13 @@ const SignIn = () => {
       .then((result) => {
         const currentUser = result.user;
         toast.success("User LogIn Successfully");
+        setSuccess(true);
+        setErrorMessage("");
       })
-      .catch((error) => {});
+      .catch((error) => {
+        setErrorMessage(error.message);
+        setSuccess("");
+      });
   };
 
   return (
@@ -73,6 +82,9 @@ const SignIn = () => {
             </NavLink>
           </p>
         </form>
+
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        {success && <p className="text-green-500">User Log In Successfully</p>}
       </div>
     </div>
   );

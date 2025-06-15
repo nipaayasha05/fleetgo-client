@@ -53,7 +53,7 @@ const MyCarList = ({ carsPromise }) => {
     });
   };
   // console.log(allData);
-  console.log(cars);
+  // console.log(cars);
   const refetch = () => {
     fetch(`http://localhost:3000/cars?email=${user.email}`)
       .then((res) => res.json())
@@ -116,7 +116,7 @@ const MyCarList = ({ carsPromise }) => {
                     </div>
                   </td>
                   <td>{car.dailyRentalPrice} $</td>
-                  <td>{car.bookingCount}</td>
+                  <td>{car.bookingCount ? car.bookingCount : 0}</td>
                   <td>{car.availability}</td>
                   <td>{car.date}</td>
                   <th>

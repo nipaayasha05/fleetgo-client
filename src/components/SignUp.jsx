@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router";
@@ -11,7 +11,8 @@ const SignUp = () => {
 
   // const navigate = useNavigate();
   //   console.log(createUser);
-
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +21,8 @@ const SignUp = () => {
     const password = form.password.value;
     const photo = form.photo.value;
     console.log(email, password, name, photo);
+    setSuccess(false);
+    setErrorMessage("");
 
     // create user in firebase
     createUser(email, password)
@@ -36,9 +39,11 @@ const SignUp = () => {
 
         console.log(res.user);
         toast.success("User LogIn Successfully");
+        setSuccess(true);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -46,8 +51,13 @@ const SignUp = () => {
     googleSignIn(auth, provider)
       .then((result) => {
         toast.success("User LogIn Successfully");
+        setSuccess(true);
+        setErrorMessage("");
       })
-      .catch((error) => {});
+      .catch((error) => {
+        setErrorMessage(error.message);
+        setSuccess("");
+      });
   };
 
   return (
@@ -97,6 +107,8 @@ const SignUp = () => {
             </NavLink>
           </p>
         </form>
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        {success && <p className="text-green-500">User Log In Successfully</p>}
       </div>
     </div>
   );

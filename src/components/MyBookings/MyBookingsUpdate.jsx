@@ -115,7 +115,11 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
           value={price}
           readOnly
         />
-        <input className="btn mt-5" type="submit" value="Confirm" />
+        <input
+          className="btn mt-5   bg-green-800 text-white"
+          type="submit"
+          value="Confirm"
+        />
       </form>
     </div>
   );

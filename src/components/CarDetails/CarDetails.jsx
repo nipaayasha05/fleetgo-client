@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Bookings from "./Bookings";
+import Swal from "sweetalert2";
 
 const CarDetails = () => {
   const cars = useLoaderData();
@@ -24,6 +25,31 @@ const CarDetails = () => {
     photo,
     registrationNumber,
   } = carsDetails;
+  // const [count, setCount] = useState(0);
+  // const handleCount = () => {
+  //   const update = count + 1;
+  //   setCount(update);
+  //   fetch(`http://localhost:3000/cars/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({ bookingCount: update }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data?.modifiedCount) {
+  //         Swal.fire({
+  //           position: "top-end",
+  //           icon: "success",
+  //           title: "Blog updated successfully.",
+  //           showConfirmButton: false,
+  //           timer: 1500,
+  //         });
+  //       }
+  //       // navigate("/my-car");
+  //     });
+  // };
   return (
     <div className="container mx-auto py-10">
       <div className=" m-5 flex bg-amber-50 flex-col lg:flex-row justify-center items-center shadow-gray-600  shadow-md p-5 rounded-xl space-y-5 lg:gap-10">

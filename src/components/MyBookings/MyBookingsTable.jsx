@@ -46,7 +46,15 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
       <td>{startDate}</td>
       <td>{endDate}</td>
       <td>{price}$</td>
-      <td>{status}</td>
+      <td
+        className={` mt-10 ${
+          status === "Confirmed"
+            ? "bg-green-400 text-white btn rounded-full"
+            : "bg-red-400 text-white btn rounded-full"
+        }`}
+      >
+        {status}
+      </td>
       <td>
         <button
           onClick={() => {
