@@ -150,18 +150,12 @@ const Navbar = () => {
               <NavLink
                 to="/signin"
                 className={({ isActive }) =>
-                  isActive ? "border-2  border-amber-300 btn mr-2 " : "mr-4 "
+                  isActive
+                    ? "border-2 rounded-2xl border-amber-300 btn mr-2 "
+                    : "mr-4 "
                 }
               >
                 Log In
-              </NavLink>
-              <NavLink
-                to="/signup"
-                className={({ isActive }) =>
-                  isActive ? "border-2  border-amber-300 btn " : ""
-                }
-              >
-                Registration
               </NavLink>
             </>
           )}

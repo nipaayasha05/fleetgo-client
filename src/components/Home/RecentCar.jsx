@@ -2,7 +2,6 @@ import { formatDistance, parse } from "date-fns";
 import React from "react";
 
 const RecentCar = ({ car }) => {
-  // console.log(car);
   const {
     availability,
     carModel,
@@ -29,10 +28,16 @@ const RecentCar = ({ car }) => {
           </p>
         </div>
         <div className="text-start">
-          <p>Price Per Day : {dailyRentalPrice} $</p>
-          <p>Booking Count : {bookingCount} </p>
           <p>
-            Date Posted :
+            <span className="font-semibold">Price Per Day</span> :{" "}
+            {dailyRentalPrice} $
+          </p>
+          <p>
+            <span className="font-semibold">Booking Count</span> :{" "}
+            {bookingCount}{" "}
+          </p>
+          <p className="font-semibold">
+            <span>Date Posted</span> :
             {formatDistance(
               parse(date, "dd-MM-yyyy-HH:mm", new Date()),
               new Date(),

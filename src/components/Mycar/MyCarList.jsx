@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { format } from "date-fns";
 import { FaEdit, FaInfoCircle } from "react-icons/fa";
 import { RiDeleteBin2Fill } from "react-icons/ri";
-// import UpdateCar from "./UpdateCar";
+
 import Update from "./Update";
 import { NavLink, useNavigate } from "react-router";
 import Swal from "sweetalert2";
@@ -17,7 +17,7 @@ const MyCarList = ({ carsPromise }) => {
   const cars = use(carsPromise);
   const [allData, setAllData] = useState(cars);
   // const navigate = useNavigate();
-  // console.log(cars);
+
   useEffect(() => {
     setAllData(cars);
   }, []);
@@ -53,8 +53,7 @@ const MyCarList = ({ carsPromise }) => {
       }
     });
   };
-  // console.log(allData);
-  // console.log(cars);
+
   const refetch = () => {
     fetch(
       `https://assignment-11-server-chi-gray.vercel.app/cars?email=${user.email}`
@@ -67,13 +66,17 @@ const MyCarList = ({ carsPromise }) => {
     <div className="container mx-auto">
       {cars.length == 0 ? (
         <div>
-          <p className="text-2xl font-bold text-center">Add A Car</p>
-          <NavLink
-            to="/available-cars"
-            className="bg-gradient-to-r from-amber-300  to-amber-400 my-2 border-3 rounded-2xl border-amber-300 "
-          >
-            Add Car
-          </NavLink>
+          <p className="text-2xl font-bold text-center">
+            You haven't added any cars yet!
+          </p>
+          <div className="text-center py-5">
+            <NavLink
+              to="/add-car"
+              className="btn bg-gradient-to-r from-amber-300  to-amber-400 my-2 border-3 rounded-2xl border-amber-300 "
+            >
+              Add Car
+            </NavLink>
+          </div>
         </div>
       ) : (
         <div className="overflow-x-auto py-5">

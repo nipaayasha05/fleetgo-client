@@ -1,16 +1,18 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+
 import { AuthContext } from "../../context/AuthContext";
 import MyBookingsTable from "./MyBookingsTable";
 import MyBookingsUpdate from "./MyBookingsUpdate";
 import { ImBin, ImCalendar } from "react-icons/im";
-// import { bookingsPromise } from "../../api/bookingsApi";
 
 const MyBookings = () => {
   const { user } = use(AuthContext);
   const [myBookings, setMyBooking] = useState([]);
-  //  const [update, setUpdate] = useState(null);
-  // const myBookings = use(bookingsPromise);
+
+  useEffect(() => {
+    document.title = "FleetGo | My Bookings";
+  }, []);
+
   useEffect(() => {
     fetch(
       `https://assignment-11-server-chi-gray.vercel.app/bookings?email=${user?.email}`

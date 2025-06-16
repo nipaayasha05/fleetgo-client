@@ -10,23 +10,20 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const Bookings = ({ cars, bookings }) => {
+const Bookings = ({ cars }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
   const { user } = use(AuthContext);
   const { id } = useParams();
   const carBookings = cars.find((car) => car._id == id);
-  // console.log(carBookings);
-  // console.log(cars);
-  // console.log(bookings);
-  // const [count, setCount] = useState(0);
+
   const handleBooking = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const booking = Object.fromEntries(formData);
-    console.log(booking);
+
     document.getElementById("my_modal_2").close();
 
     axios
@@ -35,17 +32,14 @@ const Bookings = ({ cars, bookings }) => {
         booking
       )
       .then((res) => {
-        console.log(res);
         handleCount();
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
   const handleCancel = () => {
     document.getElementById("my_modal_2").close();
   };
-  // console.log(id);
+
   const handleCount = () => {
     fetch(
       `https://assignment-11-server-chi-gray.vercel.app/cars/increment-booking/${carBookings._id}`,
@@ -63,14 +57,16 @@ const Bookings = ({ cars, bookings }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Blog updated successfully.",
+            title: "Booking Confirmed!",
             showConfirmButton: false,
             timer: 1500,
           });
-          fetch("https://assignment-11-server-chi-gray.vercel.app/cars")
-            .then((res) => res.json())
-            .then((data) => console.log(data));
+          fetch("https://assignment-11-server-chi-gray.vercel.app/cars").then(
+            (res) => res.json()
+          );
+          // .then((data) => console.log(data));
         }
+
         // navigate("/my-car");
       });
   };

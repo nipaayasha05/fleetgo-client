@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import GridLayout from "./GridLayout";
 import ListLayout from "./ListLayout";
 import { parse } from "date-fns";
-// import { useLoaderData } from "react-router";
 
 const AvailableCard = ({ cars, setCars }) => {
-  // const cars = useLoaderData();
-  // console.log(cars);
-  // const [cars, setCars] = useState([]);
   const [toggle, setToggle] = useState([]);
   const [available, setAvailable] = useState([]);
   const [search, setSearch] = useState("");

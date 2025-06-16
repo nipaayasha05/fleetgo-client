@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   const { user } = use(AuthContext);
-  console.log(myBooking);
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [price, setPrice] = useState(myBooking?.dailyRentalPrice);
@@ -31,7 +31,7 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
     const id = myBooking._id;
     const modifyDate = Object.fromEntries(formData);
 
-    console.log(modifyDate);
+    // console.log(modifyDate);
     document.getElementById("my_modal_2").close();
 
     axios
@@ -45,7 +45,6 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
         }
       )
       .then((res) => {
-        console.log(res);
         if (res.data.modifiedCount) {
           refetch();
           Swal.fire({
@@ -57,9 +56,7 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
           });
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   const refetch = () => {
@@ -73,8 +70,8 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   return (
     <div className="py-10">
       <form onSubmit={handleModifyDate}>
-        <div>
-          <p className="text-sm font-semibold ">Booking Date</p>
+        <div className="py-3">
+          <p className="text-sm font-semibold mb-2">Booking Date</p>
           <fieldset className=" fieldset input input-border w-full">
             <DatePicker
               selected={startDate}
@@ -94,7 +91,7 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
           </fieldset>
         </div>
         <div>
-          <p className="text-sm   font-semibold ">Return Date</p>
+          <p className="text-sm mb-2  font-semibold ">Return Date</p>
           <fieldset className=" fieldset input input-border w-full">
             <DatePicker
               selected={endDate}
@@ -113,8 +110,8 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
             />
           </fieldset>
         </div>
-        <div className="flex">
-          <div>
+        <div className="flex my-3">
+          <div className="m">
             Total Price :
             <input
               type="text"

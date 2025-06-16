@@ -3,7 +3,6 @@ import { NavLink } from "react-router";
 import { motion } from "motion/react";
 
 const Offer = ({ offer }) => {
-  // console.log(offer);
   return (
     <motion.div
       whileHover={{
@@ -18,7 +17,7 @@ const Offer = ({ offer }) => {
     >
       <div className="card bg-base-100 m-5 shadow-sm bg-gradient-to-t from-amber-200    to-amber-400 ">
         <div className="card-body items-center text-center">
-          <div className=" h-[80px] sm:h-[250px]">
+          <div className="  sm:h-3/12">
             <h2 className="card-title sm:text-xl">{offer.title}</h2>
             <p className="sm:text-xl"> {offer.description}</p>
           </div>

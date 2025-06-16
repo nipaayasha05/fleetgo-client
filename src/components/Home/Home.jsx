@@ -3,15 +3,16 @@ import { useLoaderData } from "react-router";
 import RecentCar from "./RecentCar";
 import Banner from "./Banner";
 import About from "./About";
-import Animation from "./Animation";
+
 import Offers from "./Offers";
+import Webs from "./Webs";
 
 const Home = () => {
   const recentCars = useLoaderData();
-  // console.log(recentCars);
 
   const [about, setAbout] = useState([]);
   const [offers, setOffers] = useState([]);
+  const [webs, setWebs] = useState([]);
 
   useEffect(() => {
     fetch("/about.json")
@@ -25,6 +26,16 @@ const Home = () => {
     fetch("/offer.json")
       .then((res) => res.json())
       .then((data) => setOffers(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/web.json")
+      .then((res) => res.json())
+      .then((data) => setWebs(data));
+  }, []);
+
+  useEffect(() => {
+    document.title = "FleetGo | Home";
   }, []);
 
   return (
@@ -46,10 +57,13 @@ const Home = () => {
           <RecentCar car={car} key={car._id}></RecentCar>
         ))}
       </div>
-      <div>
-        <Animation></Animation>
+      <div className="">
+        <h3 className="text-3xl text-center font-bold py-5">
+          Track Record of Success
+        </h3>
+        <Webs webs={webs}></Webs>
       </div>
-      <div>
+      <div className="mt-25">
         <h3 className="text-3xl text-center font-bold py-5">
           Limited-Time Deals
         </h3>

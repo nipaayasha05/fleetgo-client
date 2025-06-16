@@ -5,40 +5,45 @@ import Swal from "sweetalert2";
 // import MyBookingsUpdate from "./MyBookingsUpdate";
 
 const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
-  // console.log(myBooking);
-  // const [cancel, setCancel] = useState([]);
-  // const [update, setUpdate] = useState(null);
   const { photo, carModel, _id, email, startDate, endDate, price, status } =
     myBooking;
   //  const id = myBooking._id;
   const handleCancel = () => {
-    console.log("cancel");
-    axios
-      .patch(
-        `https://assignment-11-server-chi-gray.vercel.app/bookings/${_id}`,
-        {
-          startDate,
-          endDate,
-          price,
-          status: "Cancelled",
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.modifiedCount) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your booking has been cancelled",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          refetch();
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    Swal.fire({
+      title: "Are you want to cancel this booking?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, cancel it!",
+    }).then((result) => {
+      // console.log(result.isConfirmed);
+      if (result.isConfirmed) {
+        axios
+          .patch(
+            `https://assignment-11-server-chi-gray.vercel.app/bookings/${_id}`,
+            {
+              startDate,
+              endDate,
+              price,
+              status: "Cancelled",
+            }
+          )
+
+          .then((res) => {
+            if (res?.data?.modifiedCount) {
+              Swal.fire({
+                title: "Cancel!",
+                text: "Your booking has been cancel.",
+                icon: "success",
+              });
+              refetch();
+            }
+          })
+          .catch((error) => {});
+      }
+    });
   };
 
   const refetch = () => {
@@ -85,7 +90,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
       </td>
       <td>
         <button
-          onClick={handleCancel}
+          onClick={() => handleCancel()}
           className="btn text-white flex gap-2 bg-red-500 sm:py-6 rounded-2xl"
         >
           <ImBin size={22} color="white" />

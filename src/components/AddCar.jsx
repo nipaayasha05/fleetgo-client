@@ -12,12 +12,11 @@ const AddCar = () => {
     const form = e.target;
     const formData = new FormData(form);
     const addCar = Object.fromEntries(formData);
-    console.log(addCar);
 
     axios
       .post("https://assignment-11-server-chi-gray.vercel.app/cars", addCar)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",
@@ -29,9 +28,7 @@ const AddCar = () => {
           form.reset();
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
   return (
     <div className="container p-3    mx-auto py-5 mb-5">
@@ -146,18 +143,19 @@ const AddCar = () => {
             <textarea
               type="text"
               name="description"
-              className="textarea h-24"
+              className="textarea w-full h-24"
               placeholder="Description"
               required
             ></textarea>
           </fieldset>
-          <fieldset className="fieldset hidden bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">bookingCount</label>
             <input
               type="text"
               name="bookingCount"
               className="input w-full border "
               placeholder="bookingCount"
+              defaultValue={0}
               readOnly
             />
           </fieldset>

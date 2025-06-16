@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
@@ -10,7 +10,7 @@ const SignIn = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state || "/";
-  console.log(location);
+
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const handleSignIn = (e) => {
@@ -18,20 +18,19 @@ const SignIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
     setSuccess(false);
     setErrorMessage("");
     // signInUser
     signInUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         setSuccess(true);
 
         toast.success("User LogIn Successfully");
         navigate(from ? from : "/");
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   };
@@ -51,10 +50,14 @@ const SignIn = () => {
       });
   };
 
+  useEffect(() => {
+    document.title = "FleetGo | Log In";
+  }, []);
+
   return (
-    <div className="card bg-base-100 m-5  border  mx-auto my-30 max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-amber-100 m-5    mx-auto my-30 max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-        <h1 className="text-5xl font-bold">Sign Up now!</h1>
+        <h1 className="text-5xl font-bold text-amber-600">Log In now!</h1>
         <form onSubmit={handleSignIn} className="fieldset">
           <label className="label">Email</label>
           <input
@@ -82,11 +85,13 @@ const SignIn = () => {
           >
             <FcGoogle size={24} /> Login with Google
           </button>
-          <button className="btn btn-neutral mt-4 mr-4">Sign Up</button>
+          <button className="btn   bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-200 mt-4 mr-4">
+            Log In
+          </button>
           <p className="font-semibold text-center pt-5">
             Don’t Have An Account ?
-            <NavLink className="text-secondary " to="/signup">
-              Sign UP
+            <NavLink className="text-amber-700 " to="/signup">
+              Registration
             </NavLink>
           </p>
         </form>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 const ListLayout = ({ ava }) => {
   const navigate = useNavigate();
-  // console.log(ava);
+
   return (
     <div className="card card-side flex items-center bg-amber-50   shadow-sm m-3 ">
       <figure className="flex-1 p-2">
@@ -23,12 +23,28 @@ const ListLayout = ({ ava }) => {
           </p>
         </div>
         <div className="text-start">
-          <p>Brand : {ava.brand} </p>
-          <p>{ava.description}</p>
-          <p>Price Per Day : {ava.dailyRentalPrice} $</p>
-          <p>Location : {ava.location} </p>
-          <p>Location : {ava.date} </p>
+          <p>
+            <span className="font-semibold">Brand</span> : {ava.brand}{" "}
+          </p>
+          <p>
+            <span className="font-semibold">Description</span> :{" "}
+            {ava.description}
+          </p>
+          <p>
+            <span className="font-semibold">Price Per Day </span>:{" "}
+            {ava.dailyRentalPrice} $
+          </p>
+          <p>
+            <span className="font-semibold">Booking Count</span> :{" "}
+            {ava.bookingCount} $
+          </p>
+          <p>
+            <span className="font-semibold">Location</span> : {ava.location}{" "}
+          </p>
         </div>
+        <p>
+          <span className="font-semibold">Added On</span> : {ava.date}{" "}
+        </p>
 
         <div className="card-actions justify-end">
           <button

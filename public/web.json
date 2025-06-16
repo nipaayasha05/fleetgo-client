@@ -1,0 +1,26 @@
+ [
+  {
+    "id": 1,
+    "title": "Total Cars Available",
+    "icon": "https://img.freepik.com/free-vector/small-car-concept-illustration_114360-21160.jpg?ga=GA1.1.1169688206.1735104243&semt=ais_hybrid&w=740",
+    "description": "FleetGo offers over 120+ well-maintained, regularly serviced vehicles ready for rent, ensuring a smooth and safe ride for every customer."
+  },
+  {
+    "id": 2,
+    "title": "Years in Service",
+    "icon": "https://img.freepik.com/free-psd/clock-icon-illustration_23-2151261483.jpg?ga=GA1.1.1169688206.1735104243&semt=ais_hybrid&w=740",
+    "description": "Serving customers since 2017, FleetGo has built a reputation for reliability and customer satisfaction over 7+ successful years."
+  },
+  {
+    "id": 3,
+    "title": "Happy Customers",
+    "icon": "https://img.freepik.com/free-vector/organic-flat-feedback-concept-illustrated_23-2148955291.jpg?ga=GA1.1.1169688206.1735104243&semt=ais_hybrid&w=740",
+    "description": "With over 10,000 successful bookings, FleetGo is trusted by thousands of satisfied customers across the country."
+  },
+  {
+    "id": 4,
+    "title": "Cities Covered",
+    "icon": "https://img.freepik.com/free-vector/many-office-buildings-city_1308-35976.jpg?ga=GA1.1.1169688206.1735104243&semt=ais_hybrid&w=740",
+    "description": "FleetGo operates in 15+ major cities nationwide, offering easy, reliable, and affordable car rentals wherever you go."
+  }
+]

@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Update = ({ car, refetch }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
-  console.log(car);
+
   // const [count, setCount] = useState(0);
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -16,8 +16,6 @@ const Update = ({ car, refetch }) => {
     const addCar = Object.fromEntries(formData);
     const id = car._id;
     document.getElementById("my_modal_2").close();
-
-    console.log(addCar);
 
     fetch(`https://assignment-11-server-chi-gray.vercel.app/cars/${id}`, {
       method: "PUT",
@@ -42,11 +40,6 @@ const Update = ({ car, refetch }) => {
       });
   };
 
-  // const refetch = () => {
-  //   fetch(`https://assignment-11-server-chi-gray.vercel.app/cars?email=${user.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // };
   return (
     <div className=" ">
       <div className=" py-5 mb-5">
@@ -57,7 +50,7 @@ const Update = ({ car, refetch }) => {
           onSubmit={handleUpdate}
           className="fieldset border  shadow-gray-100 shadow-sm rounded-box   p-3      "
         >
-          <div className=" space-y-2">
+          <div className="   grid grid-cols-1 md:grid-cols-2 gap-6">
             <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4 hidden">
               <label className="label  ">email</label>
               <input
@@ -78,7 +71,6 @@ const Update = ({ car, refetch }) => {
                 defaultValue={car?.date}
                 className="input w-full border "
                 placeholder="Location"
-                // value={format(new Date(), "MM-dd-yyyy-HH:mm")}
                 readOnly
               />
             </fieldset>
@@ -115,7 +107,7 @@ const Update = ({ car, refetch }) => {
                     className="radio radio-neutral radio-xs"
                     defaultChecked
                   />
-                  <p>Active</p>
+                  <p>Available</p>
                 </div>
 
                 <div className="flex gap-2 text-gray-500  ">
@@ -126,7 +118,7 @@ const Update = ({ car, refetch }) => {
                     className="radio radio-neutral radio-xs"
                     defaultChecked
                   />
-                  <p>Inactive</p>
+                  <p>Unavailable</p>
                 </div>
               </div>
             </fieldset>
