@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Bookings from "./Bookings";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+import { GoDotFill } from "react-icons/go";
 
 const CarDetails = () => {
   const cars = useLoaderData();
   const { id } = useParams();
   const carsDetails = cars.find((car) => car._id == id);
   // console.log(cars);
-  // console.log(carsDetails);
+  console.log(carsDetails);
 
   const [bookings, setBookings] = useState(null);
   const {
@@ -25,6 +26,8 @@ const CarDetails = () => {
     photo,
     registrationNumber,
   } = carsDetails;
+  const featuresList = features.split(",");
+  console.log(featuresList);
   // const [count, setCount] = useState(0);
   // const handleCount = () => {
   //   const update = count + 1;
@@ -60,47 +63,38 @@ const CarDetails = () => {
             alt=""
           />
         </div>
-        <div className="flex-1 text-start lg::w-3xl sm:text-xl">
+        <div className="flex-1 text-start lg::w-3xl sm:text-xl  ">
+          <p className="sm:text-2xl font-bold">{carModel}</p>
           <p>
-            <span>Car Model :</span>
-            {carModel}
+            <span className="font-semibold">Price Per Day : </span>
+            {dailyRentalPrice}$
           </p>
           <p>
-            <span>Availability :</span>
+            <span className="font-semibold">Availability : </span>
             {availability}
           </p>
+          <div>
+            <span className="font-semibold">Features : </span>
+            {featuresList.map((feature, index) => (
+              <p className="flex items-center" key={index}>
+                <GoDotFill />
+                {feature}
+              </p>
+            ))}
+          </div>
           <p>
-            <span>Car Model :</span>
-            {carModel}
+            <span className="font-semibold">Description : </span>
+            {description}
           </p>
           <p>
-            <span>Car Model :</span>
-            {carModel}
+            <span className="font-semibold">Added On : </span>
+            {date}
           </p>
           <p>
-            <span>Car Model :</span>
-            {carModel}
+            <span className="font-semibold">Location : </span>
+            {location}
           </p>
-          <p>
-            <span>Car Model :</span>
-            {carModel}
-          </p>
-          <p>
-            <span>Car Model :</span>
-            {carModel}
-          </p>
-          <p>
-            <span>Car Model :</span>
-            {carModel}
-          </p>
-          <p>
-            <span>Car Model :</span>
-            {carModel}
-          </p>
-          <p>
-            <span>Car Model :</span>
-            {carModel}
-          </p>
+
           <button
             onClick={() => {
               setBookings(cars);

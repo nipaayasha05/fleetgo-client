@@ -29,7 +29,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Your booking has been cancelled",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -60,7 +60,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
       <td>{endDate}</td>
       <td>{price}$</td>
       <td
-        className={` mt-10 ${
+        className={`mt-5 sm:mt-10 ${
           status === "Confirmed"
             ? "bg-green-400 text-white btn rounded-full"
             : status === "Cancelled"

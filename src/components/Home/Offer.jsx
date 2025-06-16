@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 import { motion } from "motion/react";
 
 const Offer = ({ offer }) => {
-  console.log(offer);
+  // console.log(offer);
   return (
     <motion.div
       whileHover={{

@@ -33,7 +33,7 @@ const Update = ({ car, refetch }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Blog updated successfully.",
+            title: "Car information updated successfully.",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -173,15 +173,8 @@ const Update = ({ car, refetch }) => {
                 placeholder="Description"
                 required
               ></textarea>
-              {/* <input
-                type="text"
-                name="description"
-                className="input w-full border "
-                placeholder="Description"
-                required
-              /> */}
             </fieldset>
-            <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+            <fieldset className="fieldset hidden bg-gray-100 border-base-300 rounded-box border p-4">
               <label className="label">bookingCount</label>
               <input
                 type="text"

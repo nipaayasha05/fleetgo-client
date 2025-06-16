@@ -1,12 +1,35 @@
-# React + Vite
+# Project name : FleetGo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose :
 
-Currently, two official plugins are available:
+-Users can browse available cars, check details, prices, availability, and features.
+-Users can select pickup & return dates, see real-time availability, and confirm bookings instantly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Site URL : https://sprightly-moonbeam-219a97.netlify.app/
 
-## Expanding the ESLint configuration
+## Key Features :
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- View cars with details like model, brand, location, price, availability.
+- Book cars by selecting pickup and return dates.
+- Each time a car is booked, its booking count is automatically increased.
+- Search cars by brand, model, or location using keyword.
+- Homepage shows recently added cars sorted by date.
+- Users can view and manage their own bookings
+- Admin can add, update, or delete cars from the system.
+
+## npm packages :
+
+- axios
+- daisyui
+- date-fns
+- firebase
+- motion
+- react
+- react-datepicker
+- react-day-picker
+- react-dom
+- react-hot-toast
+- react-icons
+- react-router
+- sweetalert2
+- tailwindcss

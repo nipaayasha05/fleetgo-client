@@ -51,7 +51,7 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Blog updated successfully.",
+            title: "Your booking info has been updated",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -71,7 +71,7 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   };
 
   return (
-    <div>
+    <div className="py-10">
       <form onSubmit={handleModifyDate}>
         <div>
           <p className="text-sm font-semibold ">Booking Date</p>
@@ -113,18 +113,25 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
             />
           </fieldset>
         </div>
-        <input
-          type="text"
-          onChange={(e) => setPrice(e.target.value)}
-          name="price"
-          value={price}
-          readOnly
-        />
-        <input
-          className="btn mt-5   bg-green-800 text-white"
-          type="submit"
-          value="Confirm"
-        />
+        <div className="flex">
+          <div>
+            Total Price :
+            <input
+              type="text"
+              onChange={(e) => setPrice(e.target.value)}
+              name="price"
+              value={price}
+              readOnly
+            />
+          </div>
+        </div>
+        <div className="text-center">
+          <input
+            className="btn    bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+            type="submit"
+            value="Confirm"
+          />
+        </div>
       </form>
     </div>
   );

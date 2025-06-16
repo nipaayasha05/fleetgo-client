@@ -151,7 +151,7 @@ const AddCar = () => {
               required
             ></textarea>
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset hidden bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">bookingCount</label>
             <input
               type="text"

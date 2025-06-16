@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, useNavigate } from "react-router";
 import Navbar from "../components/Navbar";
 import Loader from "../components/Loader";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
   const { state } = useNavigate();
@@ -17,6 +18,7 @@ min-h-[calc(100vh-288px)]"
         {state == "loading" ? <Loader></Loader> : <Outlet></Outlet>}
         {/* <Outlet></Outlet> */}
       </div>
+      <Footer></Footer>
     </div>
   );
 };

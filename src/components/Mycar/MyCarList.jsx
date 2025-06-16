@@ -12,6 +12,7 @@ const MyCarList = ({ carsPromise }) => {
   const { user } = use(AuthContext);
   const [update, setUpdate] = useState(null);
   const [deleteCar, setDeleteCar] = useState([]);
+  const navigate = useNavigate();
 
   const cars = use(carsPromise);
   const [allData, setAllData] = useState(cars);
@@ -41,7 +42,7 @@ const MyCarList = ({ carsPromise }) => {
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
-                text: "Your file has been deleted.",
+                text: "Your car has been deleted.",
                 icon: "success",
               });
 
@@ -100,7 +101,7 @@ const MyCarList = ({ carsPromise }) => {
               {/* row 1 */}
               {allData.map((car, index) => (
                 <tr
-                  className="lg:text-xl md:text-sm"
+                  className="lg:text-xl md:text-sm hover:bg-orange-100"
                   car={car}
                   index={index}
                   key={car._id}
@@ -125,7 +126,10 @@ const MyCarList = ({ carsPromise }) => {
                   <td>{car.availability}</td>
                   <td>{car.date}</td>
                   <th>
-                    <button className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 ">
+                    <button
+                      onClick={() => navigate(`/car-details/${car._id}`)}
+                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+                    >
                       <FaInfoCircle size={18} />
                     </button>
                   </th>

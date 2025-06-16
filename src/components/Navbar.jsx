@@ -5,7 +5,7 @@ import car from "../assets/image/car10.png";
 
 const Navbar = () => {
   const { user, handleLogOut } = use(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const links = (
