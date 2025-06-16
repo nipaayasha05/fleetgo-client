@@ -36,7 +36,6 @@ const AvailableCard = ({ cars, setCars }) => {
         (a, b) => b.dailyRentalPrice - a.dailyRentalPrice
       );
       setCars(sortedByPrice);
-      console.log(sortedByPrice);
     }
 
     if (type === "Newest First") {
@@ -46,7 +45,6 @@ const AvailableCard = ({ cars, setCars }) => {
         return dateB - dateA;
       });
       setCars(sortedByDate);
-      console.log(sortedByDate);
     }
   };
 
