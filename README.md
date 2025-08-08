@@ -6,7 +6,7 @@
 
 ## Screenshots
 
-![Car-Rental Screenshot](https://i.ibb.co.com/5xhQrFRH/Screenshot-2025-08-08-123928.png)
+![Car-Rental Screenshot](https://i.ibb.co/5xhQrFRH/Screenshot-2025-08-08-123928.png)
 
 ## Description :
 
