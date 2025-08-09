@@ -12,7 +12,7 @@ const RecentCar = ({ car }) => {
   } = car;
   //   const addDate = new Date(car.date);
   return (
-    <div className="card shadow-sm  m-5 hover:shadow-2xl border border-gray-100  shadow-gray-900 hover:border-5 hover:border-amber-200 ">
+    <div className="card  shadow-sm  m-5 hover:shadow-2xl border border-gray-100  shadow-gray-900 hover:border-5 hover:border-amber-200 ">
       <figure>
         <img
           className="w-full h-[200px] md:h-[250px] lg:h-[300px]   "
@@ -21,13 +21,15 @@ const RecentCar = ({ car }) => {
       </figure>
       <div className="card-body hover:bg-amber-100 hover:bg-opacity-100 rounded-box sm:text-xl bg-amber-50   ">
         <div className="flex  items-center gap-10  ">
-          <h2 className=" sm:text-2xl sm:font-bold card-title">{carModel}</h2>
+          <h2 className=" sm:text-2xl sm:font-bold card-title text-black">
+            {carModel}
+          </h2>
 
-          <p className=" text-end text-amber-400 font-semibold">
+          <p className=" text-end text-amber-500 font-semibold">
             {availability}
           </p>
         </div>
-        <div className="text-start">
+        <div className="text-start text-gray-700">
           <p>
             <span className="font-semibold">Price Per Day</span> :{" "}
             {dailyRentalPrice} $

@@ -54,7 +54,7 @@ const AvailableCard = ({ cars, setCars }) => {
       <div className="flex sm:items-center justify-between">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <details className="dropdown ml-3 ">
-            <summary className="btn w-32 h-12 m-1  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300">
+            <summary className="btn w-32 h-12 m-1  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl text-black ">
               Sort By {sort ? sort : ""}
             </summary>
             <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
@@ -99,14 +99,14 @@ const AvailableCard = ({ cars, setCars }) => {
         <div className="text-end">
           <button
             onClick={handleToggle}
-            className="btn h-12 m-3 bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  "
+            className="btn h-12 m-3 bg-gradient-to-r from-amber-300  to-amber-500 my-2  border-none rounded-3xl text-black  "
           >
             {toggle ? "Grid Views" : "List Views"}
           </button>
         </div>
       </div>
       {toggle ? (
-        <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-3 gap-7 py-5">
+        <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-4 gap-7 py-5">
           {available.map((ava) => (
             <GridLayout key={ava._id} ava={ava}></GridLayout>
           ))}

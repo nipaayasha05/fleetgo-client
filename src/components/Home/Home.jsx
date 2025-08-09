@@ -39,7 +39,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-gray-50">
+    <div className=" ">
       {" "}
       <Banner></Banner>
       <div>
@@ -51,7 +51,7 @@ const Home = () => {
       </h3>
       <div
         className="grid grid-cols-1
-        md:grid-cols-2 lg:grid-cols-3 container mx-auto gap-7 py-5"
+        md:grid-cols-2 lg:grid-cols-4 container mx-auto   py-5"
       >
         {recentCars.map((car) => (
           <RecentCar car={car} key={car._id}></RecentCar>
@@ -63,7 +63,7 @@ const Home = () => {
         </h3>
         <Webs webs={webs}></Webs>
       </div>
-      <div className="mt-25">
+      <div className=" ">
         <h3 className="text-3xl text-center font-bold py-5">
           Limited-Time Deals
         </h3>

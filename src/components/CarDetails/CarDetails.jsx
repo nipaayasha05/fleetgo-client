@@ -31,7 +31,7 @@ const CarDetails = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container text-black mx-auto py-10">
       <div className=" m-5 flex bg-amber-50 flex-col lg:flex-row justify-center items-center shadow-gray-600  shadow-md p-5 rounded-xl space-y-5 lg:gap-10">
         <div className="flex-1">
           <img

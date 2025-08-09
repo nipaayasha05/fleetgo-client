@@ -9,14 +9,14 @@ const GridLayout = ({ ava }) => {
       <figure>
         <img className="w-full h-[280px]" src={ava.photo} />
       </figure>
-      <div className="card-body   sm:text-xl bg-amber-50">
+      <div className="card-body text-black  sm:text-xl bg-amber-50">
         <div className="sm:h-10/12">
           <div className="flex  items-center gap-10  ">
             <h2 className=" sm:text-2xl sm:font-bold card-title">
               {ava.carModel}
             </h2>
 
-            <p className=" text-end text-amber-400 font-semibold">
+            <p className=" text-end text-amber-500 font-semibold">
               {ava.availability}
             </p>
           </div>
@@ -53,7 +53,7 @@ const GridLayout = ({ ava }) => {
         <div className="card-actions justify-end">
           <button
             onClick={() => navigate(`/car-details/${ava._id}`)}
-            className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+            className="btn w-full  bg-gradient-to-r from-amber-300 text-black  to-amber-500 my-2 border-none rounded-3xl   "
           >
             Book Now
           </button>

@@ -33,7 +33,7 @@ const AddCar = () => {
       .catch((error) => {});
   };
   return (
-    <div className="container p-3    mx-auto py-5 mb-5">
+    <div className="container p-3   mx-auto py-5 mb-5">
       <h3 className="text-3xl font-bold  text-center py-10">
         Add Your Car Here
       </h3>
@@ -64,34 +64,34 @@ const AddCar = () => {
               readOnly
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Car Model</label>
             <input
               type="text"
               name="carModel"
-              className="input w-full border "
+              className="input w-full   bg-gray-50 text-black border  "
               placeholder="Car Model"
               required
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Daily Rental Price</label>
             <input
               type="text"
               name="dailyRentalPrice"
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="Daily Rental Price"
               required
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border w-full p-5">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border w-full p-5">
             <label className="label">Availability</label>
             <div className="flex gap-5 ">
               <div className="flex gap-2 text-gray-500  ">
                 <input
                   type="radio"
                   name="availability"
-                  className="radio radio-neutral radio-xs"
+                  className="radio radio-neutral radio-xs bg-gray-50 text-black"
                   value="Available"
                   defaultChecked
                 />
@@ -102,7 +102,7 @@ const AddCar = () => {
                 <input
                   type="radio"
                   name="availability"
-                  className="radio radio-neutral radio-xs"
+                  className="radio radio-neutral radio-xs bg-gray-50 text-black"
                   value="Unavailable"
                   defaultChecked
                 />
@@ -110,74 +110,74 @@ const AddCar = () => {
               </div>
             </div>
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Vehicle Registration Number</label>
             <input
               type="text"
               name="registrationNumber"
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="Vehicle Registration Number"
               required
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Features</label>
             <input
               type="text"
               name="features"
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="Features"
               required
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Brand</label>
             <input
               type="text"
               name="brand"
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="Brand"
               required
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Description</label>
             <textarea
               type="text"
               name="description"
-              className="textarea w-full h-24"
+              className="textarea w-full h-24 bg-gray-50 text-black"
               placeholder="Description"
               required
             ></textarea>
           </fieldset>
-          <fieldset className="fieldset  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black   bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">bookingCount</label>
             <input
               type="text"
               name="bookingCount"
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="bookingCount"
               defaultValue={0}
               readOnly
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
             <label className="label">Location</label>
             <input
               type="text"
               name="location"
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="Location"
               required
             />
           </fieldset>
         </div>
-        <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box my-2 border p-4">
+        <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box my-2 border p-4">
           <label className="label">Photo URL</label>
           <input
             type="text"
             name="photo"
-            className="input w-full border "
+            className="input w-full border bg-gray-50 text-black"
             placeholder="Photo URL"
             required
           />

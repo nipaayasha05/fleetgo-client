@@ -92,9 +92,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="card bg-amber-100 m-5    mx-auto my-30    max-w-sm shrink-0 shadow-2xl  ">
+    <div className="card bg-amber-50 m-5    mx-auto my-30    max-w-sm shrink-0 shadow-2xl  ">
       <div className="card-body">
-        <h1 className="text-5xl font-bold text-amber-600">Sign Up now!</h1>
+        <h1 className="text-5xl font-bold text-amber-500">Sign Up now!</h1>
         <form onSubmit={handleSignUp} className="fieldset">
           <label className="label">Name</label>
           <input type="text" name="name" className="input" placeholder="Name" />
@@ -130,10 +130,10 @@ const SignUp = () => {
           >
             <FcGoogle size={24} /> Login with Google
           </button>
-          <button className="btn   bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-200 mt-4 mr-4">
+          <button className="btn text-gray-700  bg-gradient-to-r from-amber-300  to-amber-500 my-2  border-none rounded-2xl   mt-4 mr-4">
             Registration
           </button>
-          <p className="font-semibold text-center pt-5">
+          <p className="font-semibold text-gray-700 text-center pt-5">
             Already Have An Account ?
             <NavLink className=" text-amber-700" to="/signin">
               Log In

@@ -7,13 +7,13 @@ import Footer from "../components/Footer";
 const MainLayout = () => {
   const { state } = useNavigate();
   return (
-    <div className="bg-gray-50">
+    <div className=" ">
       <div className="mb-20 ">
         <Navbar></Navbar>
       </div>
       <div
         className="
-min-h-[calc(100vh-288px)] bg-gray-50"
+min-h-[calc(100vh-288px)]  "
       >
         {state == "loading" ? <Loader></Loader> : <Outlet></Outlet>}
         {/* <Outlet></Outlet> */}

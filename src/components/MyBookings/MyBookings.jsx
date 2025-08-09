@@ -28,7 +28,7 @@ const MyBookings = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="bg-amber-200 text-gray-800 sm:text-xl sm:h-24 h-16">
+            <tr className="bg-amber-300   text-gray-800 sm:text-xl sm:h-24 h-16">
               <th></th>
               <th>Car Image</th>
               <th>Car Model</th>

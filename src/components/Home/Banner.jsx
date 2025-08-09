@@ -18,7 +18,7 @@ const Banner = () => {
           <div className="text-start lg:text-center ">
             <NavLink
               to="/available-cars"
-              className="btn z-50 font-bold  sm:p-5 sm:text-xl  -skew-x-1 border-none  bg-gradient-to-r from-amber-300  to-amber-500 my-2  rounded-3xl "
+              className="btn z-50 font-bold text-black  sm:p-5 sm:text-xl  -skew-x-1 border-none  bg-gradient-to-r from-amber-300  to-amber-500 my-2  rounded-3xl "
             >
               View Available Cars
             </NavLink>

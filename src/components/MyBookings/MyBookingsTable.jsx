@@ -53,7 +53,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
   };
 
   return (
-    <tr className="hover:bg-orange-100 hover:shadow-2xl hover:shadow-gray-200   bg-amber-50 sm:text-xl">
+    <tr className="hover:bg-gray-50 hover:shadow-2xl hover:shadow-gray-200 text-black border-b border-b-amber-300  bg-amber-50 sm:text-xl">
       <th>{index + 1}</th>
       <td>
         <img className="w-36 sm:h-24 h-14  rounded-xl" src={photo} alt="" />

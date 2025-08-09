@@ -64,7 +64,7 @@ const MyCarList = ({ cars }) => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container hover:text-black mx-auto">
       {cars.length == 0 ? (
         <div>
           <p className="text-2xl font-bold text-center">
@@ -105,7 +105,7 @@ const MyCarList = ({ cars }) => {
               {/* row 1 */}
               {allData.map((car, index) => (
                 <tr
-                  className="lg:text-xl md:text-sm hover:bg-orange-100"
+                  className="lg:text-xl md:text-sm hover:bg-gray-50"
                   car={car}
                   index={index}
                   key={car._id}

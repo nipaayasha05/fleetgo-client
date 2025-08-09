@@ -45,7 +45,7 @@ const Update = ({ car, refetch }) => {
           className="fieldset border  shadow-gray-100 shadow-sm rounded-box   p-3      "
         >
           <div className="   grid grid-cols-1 md:grid-cols-2 gap-6">
-            <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4 hidden">
+            <fieldset className="fieldset text-black bg-gray-100 border-base-300 rounded-box border p-4 hidden">
               <label className="label  ">email</label>
               <input
                 type="text"
@@ -74,7 +74,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="carModel"
                 defaultValue={car?.carModel}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="Car Model"
                 required
               />
@@ -85,7 +85,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="dailyRentalPrice"
                 defaultValue={car?.dailyRentalPrice}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="Daily Rental Price"
                 required
               />
@@ -98,7 +98,7 @@ const Update = ({ car, refetch }) => {
                     type="radio"
                     name="availability"
                     defaultValue={car?.availability}
-                    className="radio radio-neutral radio-xs"
+                    className="radio radio-neutral radio-xs bg-gray-50 text-black"
                     defaultChecked
                   />
                   <p>Available</p>
@@ -109,7 +109,7 @@ const Update = ({ car, refetch }) => {
                     type="radio"
                     name="availability"
                     defaultValue={car?.availability}
-                    className="radio radio-neutral radio-xs"
+                    className="radio radio-neutral radio-xs bg-gray-50 text-black"
                     defaultChecked
                   />
                   <p>Unavailable</p>
@@ -122,7 +122,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="registrationNumber"
                 defaultValue={car?.registrationNumber}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="Vehicle Registration Number"
                 required
               />
@@ -133,7 +133,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="features"
                 defaultValue={car?.features}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="Features"
                 required
               />
@@ -144,7 +144,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="brand"
                 defaultValue={car?.brand}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="Brand"
                 required
               />
@@ -155,7 +155,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="description"
                 defaultValue={car?.description}
-                className="textarea  w-full h-24"
+                className="textarea  w-full h-24 bg-gray-50 text-black"
                 placeholder="Description"
                 required
               ></textarea>
@@ -166,7 +166,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="bookingCount"
                 defaultValue={car?.bookingCount}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="bookingCount"
                 readOnly
               />
@@ -177,7 +177,7 @@ const Update = ({ car, refetch }) => {
                 type="text"
                 name="location"
                 defaultValue={car?.location}
-                className="input w-full border "
+                className="input w-full border bg-gray-50 text-black"
                 placeholder="Location"
                 required
               />
@@ -189,7 +189,7 @@ const Update = ({ car, refetch }) => {
               type="text"
               name="photo"
               defaultValue={car?.photo}
-              className="input w-full border "
+              className="input w-full border bg-gray-50 text-black"
               placeholder="Photo URL"
               required
             />

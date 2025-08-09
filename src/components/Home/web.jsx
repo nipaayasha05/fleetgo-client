@@ -39,7 +39,7 @@ const web = ({ web }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
-            className="card-title sm:text-xl font-bold"
+            className="card-title text-black sm:text-xl font-bold"
           >
             {web.title}
           </motion.h2>

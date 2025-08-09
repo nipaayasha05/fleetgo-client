@@ -18,14 +18,14 @@ const Offer = ({ offer }) => {
       <div className="card bg-base-100 m-5 shadow-sm bg-gradient-to-t from-amber-200    to-amber-400 ">
         <div className="card-body items-center text-center">
           <div className="  sm:h-3/12">
-            <h2 className="card-title sm:text-xl">{offer.title}</h2>
-            <p className="sm:text-xl"> {offer.description}</p>
+            <h2 className="card-title sm:text-xl text-black">{offer.title}</h2>
+            <p className="sm:text-xl text-gray-700"> {offer.description}</p>
           </div>
 
           <div className="card-actions">
             <NavLink
               to="/available-cars"
-              className="btn   bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2  rounded-3xl  "
+              className="btn text-black  bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2  rounded-3xl  "
             >
               Book Now
             </NavLink>
