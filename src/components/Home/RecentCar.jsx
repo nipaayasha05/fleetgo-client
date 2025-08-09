@@ -1,7 +1,9 @@
 import { formatDistance, parse } from "date-fns";
 import React from "react";
+import { useNavigate } from "react-router";
 
 const RecentCar = ({ car }) => {
+  const navigate = useNavigate();
   const {
     availability,
     carModel,
@@ -12,14 +14,14 @@ const RecentCar = ({ car }) => {
   } = car;
   //   const addDate = new Date(car.date);
   return (
-    <div className="card  shadow-sm  m-5 hover:shadow-2xl border border-gray-100  shadow-gray-900 hover:border-5 hover:border-amber-200 ">
+    <div className="card hover:bg-amber-50 shadow-xl  m-5     bg-gray-50       ">
       <figure>
         <img
           className="w-full h-[200px] md:h-[250px] lg:h-[300px]   "
           src={photo}
         />
       </figure>
-      <div className="card-body hover:bg-amber-100 hover:bg-opacity-100 rounded-box sm:text-xl bg-amber-50   ">
+      <div className="card-body    rounded-box sm:text-xl    ">
         <div className="flex  items-center gap-10  ">
           <h2 className=" sm:text-2xl sm:font-bold card-title text-black">
             {carModel}
@@ -29,7 +31,7 @@ const RecentCar = ({ car }) => {
             {availability}
           </p>
         </div>
-        <div className="text-start text-gray-700">
+        <div className="text-start   sm:text-xl text-gray-700">
           <p>
             <span className="font-semibold">Price Per Day</span> :{" "}
             {dailyRentalPrice} $
@@ -49,6 +51,14 @@ const RecentCar = ({ car }) => {
             )}
           </p>
         </div>
+      </div>
+      <div className="card-actions justify-end pr-6 pb-2">
+        <button
+          onClick={() => navigate(`/car-details/${car._id}`)}
+          className="btn   bg-gradient-to-r from-amber-300 text-black  to-amber-500 my-2 border-none rounded-3xl   "
+        >
+          See More
+        </button>
       </div>
     </div>
   );

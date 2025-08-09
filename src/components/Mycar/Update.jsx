@@ -183,8 +183,8 @@ const Update = ({ car, refetch }) => {
               />
             </fieldset>
           </div>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box my-2 border p-4">
-            <label className="label">Photo URL</label>
+          <fieldset className="fieldset bg-amber-50 border-base-300 rounded-box my-2 border p-4">
+            <label className="label text-black">Photo URL</label>
             <input
               type="text"
               name="photo"

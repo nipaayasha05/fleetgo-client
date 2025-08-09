@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Bookings from "./Bookings";
 
 import { GoDotFill } from "react-icons/go";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../context/AuthContext";
 
 const CarDetails = () => {
   const cars = useLoaderData();
+  const { user } = use(AuthContext);
   console.log(cars);
   const { id } = useParams();
   const carsDetails = cars.find((car) => car._id == id);
@@ -31,7 +34,7 @@ const CarDetails = () => {
   }, []);
 
   return (
-    <div className="container text-black mx-auto py-10">
+    <div className="container    mx-auto py-10">
       <div className=" m-5 flex bg-amber-50 flex-col lg:flex-row justify-center items-center shadow-gray-600  shadow-md p-5 rounded-xl space-y-5 lg:gap-10">
         <div className="flex-1">
           <img
@@ -40,17 +43,17 @@ const CarDetails = () => {
             alt=""
           />
         </div>
-        <div className="flex-1 text-start lg::w-3xl sm:text-xl  ">
-          <p className="sm:text-2xl font-bold">{carModel}</p>
-          <p>
+        <div className="flex-1  text-start lg::w-3xl sm:text-xl  ">
+          <p className="sm:text-2xl font-bold text-black">{carModel}</p>
+          <p className="text-black">
             <span className="font-semibold">Price Per Day : </span>
             {dailyRentalPrice}$
           </p>
-          <p>
+          <p className="text-black">
             <span className="font-semibold">Availability : </span>
             {availability}
           </p>
-          <div>
+          <div className="text-black">
             <span className="font-semibold">Features : </span>
             {featuresList.map((feature, index) => (
               <p className="flex items-center" key={index}>
@@ -59,25 +62,33 @@ const CarDetails = () => {
               </p>
             ))}
           </div>
-          <p>
+          <p className="text-black">
             <span className="font-semibold">Description : </span>
             {description}
           </p>
-          <p>
+          <p className="text-black">
             <span className="font-semibold">Added On : </span>
             {date}
           </p>
-          <p>
+          <p className="text-black">
             <span className="font-semibold">Location : </span>
             {location}
           </p>
 
           <button
             onClick={() => {
+              if (!user) {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Please Login First",
+                  text: "You need to be logged in to add items to cart.",
+                });
+                return;
+              }
               setBookings(cars);
               document.getElementById("my_modal_2").showModal();
             }}
-            className="btn    bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+            className="btn  text-black  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl   "
           >
             Book Now
           </button>

@@ -23,16 +23,16 @@ const web = ({ web }) => {
       variants={item}
       initial="hidden"
       whileInView="visible"
-      className="card sm:card-xs card-xl m-3 bg-gradient-to-r from-amber-100    to-amber-300   p-2 shadow-sm"
+      className="card sm:card-xs card-xl m-3     p-2 shadow-xl bg-amber-50"
     >
-      <div className=" m-1     border-t-5 border-t-amber-100  rounded-xl border-l-yellow-100  ">
+      <div className=" m-1        rounded-xl border-l-yellow-100  ">
         <div className="flex flex-col sm:flex-row sm:gap-0 gap-5 items-center  ">
           <figure className="px-10 pt-10 ">
             <motion.img
               animate={{ x: [10, 7, 10] }}
               transition={{ ease: "easeOut", duration: 2, repeat: Infinity }}
               src={web.icon}
-              className="w-1/2 sm:w-36 h-1/2 sm:h-28 rounded-xl p-1 bg-amber-200"
+              className="w-1/2 sm:w-36 h-1/2 sm:h-28 rounded-xl p-1 bg-amber-300"
             />
           </figure>
           <motion.h2

@@ -55,6 +55,16 @@ const Navbar = () => {
           Available Cars
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/top-car"
+          className={({ isActive }) =>
+            isActive ? "border-2 text-black  border-amber-300 rounded-3xl " : ""
+          }
+        >
+          Top Cars
+        </NavLink>
+      </li>
 
       {user && (
         <>

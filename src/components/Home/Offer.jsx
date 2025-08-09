@@ -15,7 +15,7 @@ const Offer = ({ offer }) => {
       }}
       className="hover:scale-100"
     >
-      <div className="card bg-base-100 m-5 shadow-sm bg-gradient-to-t from-amber-200    to-amber-400 ">
+      <div className="card bg-base-100 m-5 shadow-xl bg-gradient-to-t from-amber-100    to-amber-300 ">
         <div className="card-body items-center text-center">
           <div className="  sm:h-3/12">
             <h2 className="card-title sm:text-xl text-black">{offer.title}</h2>

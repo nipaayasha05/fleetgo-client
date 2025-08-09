@@ -46,16 +46,18 @@ const Home = () => {
         <h3 className="text-3xl text-center font-bold py-5"> Why Choose Us?</h3>
         <About about={about}></About>
       </div>
-      <h3 className="text-3xl text-center font-bold py-5">
-        Latest Car Arrivals
-      </h3>
-      <div
-        className="grid grid-cols-1
+      <div className="  container mx-auto rounded-xl">
+        <h3 className="text-3xl   text-center font-bold py-5">
+          Latest Car Arrivals
+        </h3>
+        <div
+          className="grid grid-cols-1
         md:grid-cols-2 lg:grid-cols-4 container mx-auto   py-5"
-      >
-        {recentCars.map((car) => (
-          <RecentCar car={car} key={car._id}></RecentCar>
-        ))}
+        >
+          {recentCars.map((car) => (
+            <RecentCar car={car} key={car._id}></RecentCar>
+          ))}
+        </div>
       </div>
       <div className="">
         <h3 className="text-3xl text-center font-bold py-5">

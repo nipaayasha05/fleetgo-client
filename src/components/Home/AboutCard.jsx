@@ -3,7 +3,7 @@ import React from "react";
 const AboutCard = ({ ab }) => {
   const { title, description, icon } = ab;
   return (
-    <div className="card sm:card-xs bg-amber-50        m-5 shadow-sm">
+    <div className="card sm:card-xs bg-amber-50        m-5 shadow-xl">
       <div className=" m-1 border-l-5 border-t-5 border-t-amber-50  rounded-xl border-l-amber-50">
         <figure className="px-10 pt-10 ">
           <img

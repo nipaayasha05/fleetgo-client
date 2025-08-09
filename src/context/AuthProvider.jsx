@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
   const handleLogOut = () => {
     signOut(auth)
       .then(() => {
+        setUser(null);
         toast.success("User LogOut Successfully");
       })
       .catch((error) => {});
@@ -65,20 +66,23 @@ const AuthProvider = ({ children }) => {
             withCredentials: true,
           }
         );
+        setLoading(false);
       } else {
-        setUser(user);
-        await axios.get("http://localhost:3000/logout", {
-          withCredentials: true,
-        });
+        console.log("erfetfe");
+        await axios.post(
+          "http://localhost:3000/logout",
+          {},
+          { withCredentials: true }
+        );
+        setLoading(false);
       }
 
-      setLoading(false);
       // console.log(user);
     });
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [user?.email]);
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

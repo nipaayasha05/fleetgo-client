@@ -210,12 +210,12 @@ const Bookings = ({ cars }) => {
           <button
             type="button"
             onClick={handleCancel}
-            className="btn bg-gradient-to-r from-red-300  to-red-500 my-2 border-3 rounded-2xl border-red-200 "
+            className="btn text-black bg-gradient-to-r from-red-300  to-red-500 my-2 border-none rounded-3xl   "
           >
             Cancel
           </button>
           <input
-            className="btn  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-200 "
+            className="btn text-black bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl  "
             type="submit"
             value="Confirmed Booking"
           />

@@ -81,10 +81,10 @@ const MyCarList = ({ cars }) => {
         </div>
       ) : (
         <div className="overflow-x-auto py-5">
-          <table className="table">
+          <table className="table text-black bg-amber-50">
             {/* head */}
-            <thead>
-              <tr className="lg:text-xl md:text-sm">
+            <thead className="sm:h-24 h-16">
+              <tr className="lg:text-xl md:text-sm text-black border-b border-b-amber-300">
                 <th>
                   <label>
                     <input type="checkbox" className="checkbox" />
@@ -105,7 +105,7 @@ const MyCarList = ({ cars }) => {
               {/* row 1 */}
               {allData.map((car, index) => (
                 <tr
-                  className="lg:text-xl md:text-sm hover:bg-gray-50"
+                  className="lg:text-xl md:text-sm hover:bg-gray-50 border-b border-b-amber-300"
                   car={car}
                   index={index}
                   key={car._id}

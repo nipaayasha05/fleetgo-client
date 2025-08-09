@@ -15,6 +15,7 @@ import MyBookings from "../components/MyBookings/MyBookings";
 import Loader from "../components/Loader";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../components/ErrorPage";
+import TopCars from "../components/topCar/TopCars";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "available-cars",
         Component: AvailableCars,
+      },
+      {
+        path: "top-car",
+        Component: TopCars,
       },
       {
         path: "add-car",
