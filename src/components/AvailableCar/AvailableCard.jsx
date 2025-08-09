@@ -36,6 +36,13 @@ const AvailableCard = ({ cars, setCars }) => {
       setCars(sortedByPrice);
     }
 
+    if (type === "Lowest Price") {
+      const sortedByPrice = [...cars].sort(
+        (a, b) => a.dailyRentalPrice - b.dailyRentalPrice
+      );
+      setCars(sortedByPrice);
+    }
+
     if (type === "Newest First") {
       const sortedByDate = [...cars].sort((a, b) => {
         const dateA = parse(a.date, "dd-MM-yyyy-HH:mm", new Date());
@@ -63,6 +70,9 @@ const AvailableCard = ({ cars, setCars }) => {
                   {" "}
                   Highest Price
                 </a>
+              </li>
+              <li>
+                <a onClick={() => handleSort("Lowest Price")}> Lowest Price</a>
               </li>
               <li>
                 <a onClick={() => handleSort("Newest First")}>Newest First </a>
