@@ -2,11 +2,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ImBin, ImCalendar } from "react-icons/im";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import MyBookingsUpdate from "./MyBookingsUpdate";
 
 const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
   const { photo, carModel, _id, email, startDate, endDate, price, status } =
     myBooking;
+  const axiosSecure = useAxiosSecure();
   //  const id = myBooking._id;
   const handleCancel = () => {
     Swal.fire({
@@ -20,16 +22,13 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
     }).then((result) => {
       // console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        axios
-          .patch(
-            `https://assignment-11-server-chi-gray.vercel.app/bookings/${_id}`,
-            {
-              startDate,
-              endDate,
-              price,
-              status: "Cancelled",
-            }
-          )
+        axiosSecure
+          .patch(`/bookings/${_id}`, {
+            startDate,
+            endDate,
+            price,
+            status: "Cancelled",
+          })
 
           .then((res) => {
             if (res?.data?.modifiedCount) {
@@ -47,11 +46,10 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
   };
 
   const refetch = () => {
-    fetch(
-      `https://assignment-11-server-chi-gray.vercel.app/bookings/?email=${email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setMyBooking(data));
+    axiosSecure
+      .get(`http://localhost:3000/bookings/?email=${email}`)
+
+      .then((res) => setMyBooking(res.data));
   };
 
   return (

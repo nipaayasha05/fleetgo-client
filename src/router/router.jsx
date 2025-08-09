@@ -24,8 +24,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () =>
-          fetch("https://assignment-11-server-chi-gray.vercel.app/recentCar"),
+        loader: () => fetch("http://localhost:3000/recentCar"),
         hydrateFallbackElement: <Loader></Loader>,
       },
       {
@@ -58,13 +57,8 @@ const router = createBrowserRouter([
       },
       {
         path: "car-details/:id",
-        loader: () =>
-          fetch(`https://assignment-11-server-chi-gray.vercel.app/cars`),
-        element: (
-          <PrivateRoute>
-            <CarDetails></CarDetails>
-          </PrivateRoute>
-        ),
+        loader: () => fetch(`http://localhost:3000/available-cars`),
+        element: <CarDetails></CarDetails>,
         hydrateFallbackElement: <Loader></Loader>,
       },
       {

@@ -14,7 +14,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "border-2  border-amber-300 rounded-2xl" : ""
+            isActive ? "border-2  border-amber-300 rounded-3xl " : ""
           }
         >
           Home
@@ -24,7 +24,7 @@ const Navbar = () => {
         <NavLink
           to="/available-cars"
           className={({ isActive }) =>
-            isActive ? "border-2  border-amber-300 rounded-2xl " : ""
+            isActive ? "border-2  border-amber-300 rounded-3xl " : ""
           }
         >
           Available Cars
@@ -37,7 +37,7 @@ const Navbar = () => {
             <NavLink
               to="/add-car"
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 rounded-2xl" : ""
+                isActive ? "border-2  border-amber-300 rounded-3xl " : ""
               }
             >
               Add Car
@@ -47,7 +47,7 @@ const Navbar = () => {
             <NavLink
               to="/my-car"
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 rounded-2xl btn" : ""
+                isActive ? "border-2  border-amber-300 rounded-3xl " : ""
               }
             >
               My Cars
@@ -57,7 +57,7 @@ const Navbar = () => {
             <NavLink
               to="/my-bookings"
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 rounded-2xl btn" : ""
+                isActive ? "border-2  border-amber-300 rounded-3xl  " : ""
               }
             >
               {" "}
@@ -75,7 +75,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar top-0 fixed bg-gray-50 shadow-sm border-b-2 border-amber-300 z-10 ">
+    <div className="navbar top-0 fixed bg-amber-50 shadow-sm border-b-2 border-amber-300 z-10 ">
       <div className="flex  container mx-auto ">
         <div className="navbar-start ">
           <div className="dropdown">
@@ -140,7 +140,9 @@ const Navbar = () => {
             <NavLink
               onClick={handleUserLogOut}
               className={({ isActive }) =>
-                isActive ? "border-2  border-amber-300 rounded-2xl btn" : ""
+                isActive
+                  ? "btn   bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2  rounded-3xl"
+                  : ""
               }
             >
               Log Out
@@ -151,8 +153,8 @@ const Navbar = () => {
                 to="/signin"
                 className={({ isActive }) =>
                   isActive
-                    ? "border-2 rounded-2xl border-amber-300 btn mr-2 "
-                    : "mr-4 "
+                    ? "  "
+                    : "mr-4 btn   bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2  rounded-3xl  "
                 }
               >
                 Log In

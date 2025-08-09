@@ -3,9 +3,11 @@ import { AuthContext } from "../context/AuthContext";
 import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddCar = () => {
   const { user } = use(AuthContext);
+  const axiosSecure = useAxiosSecure();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,8 +15,8 @@ const AddCar = () => {
     const formData = new FormData(form);
     const addCar = Object.fromEntries(formData);
 
-    axios
-      .post("https://assignment-11-server-chi-gray.vercel.app/cars", addCar)
+    axiosSecure
+      .post("http://localhost:3000/cars", addCar)
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {

@@ -9,12 +9,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Bookings = ({ cars }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
   const { user } = use(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   const carBookings = cars.find((car) => car._id == id);
 
@@ -26,11 +28,8 @@ const Bookings = ({ cars }) => {
 
     document.getElementById("my_modal_2").close();
 
-    axios
-      .post(
-        "https://assignment-11-server-chi-gray.vercel.app/bookings",
-        booking
-      )
+    axiosSecure
+      .post("/bookings", booking)
       .then((res) => {
         handleCount();
       })
@@ -41,19 +40,11 @@ const Bookings = ({ cars }) => {
   };
 
   const handleCount = () => {
-    fetch(
-      `https://assignment-11-server-chi-gray.vercel.app/cars/increment-booking/${carBookings._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.modifiedCount) {
+    axiosSecure
+      .patch(`/cars/increment-booking/${carBookings._id}`)
+
+      .then((res) => {
+        if (res.data?.modifiedCount) {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -61,17 +52,14 @@ const Bookings = ({ cars }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          fetch("https://assignment-11-server-chi-gray.vercel.app/cars").then(
-            (res) => res.json()
-          );
-          // .then((data) => console.log(data));
+          axiosSecure.get("/cars").then((data) => console.log(data));
         }
 
         // navigate("/my-car");
       });
   };
 
-  // fetch("https://assignment-11-server-chi-gray.vercel.app/cars").then(res=>res.json()).then(data=>console.log(data))
+  // fetch("http://localhost:3000/cars").then(res=>res.json()).then(data=>console.log(data))
 
   return (
     <div className="space-y-2 m-5   sm:my-5 my-44 ">

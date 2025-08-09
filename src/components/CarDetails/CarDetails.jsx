@@ -6,6 +6,7 @@ import { GoDotFill } from "react-icons/go";
 
 const CarDetails = () => {
   const cars = useLoaderData();
+  console.log(cars);
   const { id } = useParams();
   const carsDetails = cars.find((car) => car._id == id);
 

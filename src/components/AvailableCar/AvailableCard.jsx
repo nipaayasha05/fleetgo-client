@@ -22,9 +22,7 @@ const AvailableCard = ({ cars, setCars }) => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://assignment-11-server-chi-gray.vercel.app/cars?search=${search}`
-    )
+    fetch(`http://localhost:3000/available-cars?search=${search}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [search]);

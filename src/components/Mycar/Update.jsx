@@ -3,10 +3,12 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Update = ({ car, refetch }) => {
   const { user } = use(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   // const [count, setCount] = useState(0);
   const handleUpdate = (e) => {
@@ -17,27 +19,19 @@ const Update = ({ car, refetch }) => {
     const id = car._id;
     document.getElementById("my_modal_2").close();
 
-    fetch(`https://assignment-11-server-chi-gray.vercel.app/cars/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addCar),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Car information updated successfully.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-        // navigate("/my-car");
-      });
+    axiosSecure.put(`/cars/${id}`, addCar).then((res) => {
+      if (res.data.modifiedCount) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Car information updated successfully.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+      // navigate("/my-car");
+    });
   };
 
   return (

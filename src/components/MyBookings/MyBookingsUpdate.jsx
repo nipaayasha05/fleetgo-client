@@ -4,9 +4,11 @@ import React, { use, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { AuthContext } from "../../context/AuthContext";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   const { user } = use(AuthContext);
+  const axiosSecure = useAxiosSecure();
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -34,16 +36,13 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
     // console.log(modifyDate);
     document.getElementById("my_modal_2").close();
 
-    axios
-      .patch(
-        `https://assignment-11-server-chi-gray.vercel.app/bookings/${id}`,
-        {
-          startDate: format(startDate, "dd-MM-yyyy HH:mm"),
-          endDate: format(endDate, "dd-MM-yyyy HH:mm"),
-          price,
-          status: "confirmed",
-        }
-      )
+    axiosSecure
+      .patch(`/bookings/${id}`, {
+        startDate: format(startDate, "dd-MM-yyyy HH:mm"),
+        endDate: format(endDate, "dd-MM-yyyy HH:mm"),
+        price,
+        status: "confirmed",
+      })
       .then((res) => {
         if (res.data.modifiedCount) {
           refetch();
@@ -60,11 +59,10 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   };
 
   const refetch = () => {
-    fetch(
-      `https://assignment-11-server-chi-gray.vercel.app/bookings/?email=${user.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setMyBooking(data));
+    axiosSecure
+      .get(`/bookings/?email=${user.email}`)
+      // .then((res) => res.json())
+      .then((res) => setMyBooking(res.data));
   };
 
   return (

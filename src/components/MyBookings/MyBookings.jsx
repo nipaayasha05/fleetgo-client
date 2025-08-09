@@ -4,22 +4,23 @@ import { AuthContext } from "../../context/AuthContext";
 import MyBookingsTable from "./MyBookingsTable";
 import MyBookingsUpdate from "./MyBookingsUpdate";
 import { ImBin, ImCalendar } from "react-icons/im";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookings = () => {
   const { user } = use(AuthContext);
   const [myBookings, setMyBooking] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     document.title = "FleetGo | My Bookings";
   }, []);
 
   useEffect(() => {
-    fetch(
-      `https://assignment-11-server-chi-gray.vercel.app/bookings?email=${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setMyBooking(data));
-  }, [user]);
+    axiosSecure
+      .get(`/bookings?email=${user?.email}`)
+      // .then((res) => res.json())
+      .then((res) => setMyBooking(res.data));
+  }, [user?.email, axiosSecure]);
   const [update, setUpdate] = useState(null);
   return (
     <div className="container mx-auto">

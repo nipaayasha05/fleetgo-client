@@ -25,7 +25,7 @@ const Offer = ({ offer }) => {
           <div className="card-actions">
             <NavLink
               to="/available-cars"
-              className="btn   bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-3xl border-amber-200"
+              className="btn   bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2  rounded-3xl  "
             >
               Book Now
             </NavLink>

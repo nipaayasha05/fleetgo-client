@@ -7,20 +7,22 @@ import { RiDeleteBin2Fill } from "react-icons/ri";
 import Update from "./Update";
 import { NavLink, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-const MyCarList = ({ carsPromise }) => {
+const MyCarList = ({ cars }) => {
   const { user } = use(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const [update, setUpdate] = useState(null);
   const [deleteCar, setDeleteCar] = useState([]);
   const navigate = useNavigate();
 
-  const cars = use(carsPromise);
+  // const cars = use(carsPromise);
   const [allData, setAllData] = useState(cars);
   // const navigate = useNavigate();
 
   useEffect(() => {
     setAllData(cars);
-  }, []);
+  }, [cars]);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -33,33 +35,32 @@ const MyCarList = ({ carsPromise }) => {
     }).then((result) => {
       // console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        fetch(`https://assignment-11-server-chi-gray.vercel.app/cars/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            refetch();
-            if (data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your car has been deleted.",
-                icon: "success",
-              });
+        axiosSecure.delete(`/cars/${_id}`).then((res) => {
+          const data = res.data;
+          refetch();
+          if (data.deletedCount) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your car has been deleted.",
+              icon: "success",
+            });
 
-              const remainingCars = deleteCar.filter((car) => car._id !== _id);
-              setDeleteCar(remainingCars);
-            }
-          });
+            const remainingCars = deleteCar.filter((car) => car._id !== _id);
+            setDeleteCar(remainingCars);
+          }
+        });
+        // .then((data) => {
+
+        // });
       }
     });
   };
 
   const refetch = () => {
-    fetch(
-      `https://assignment-11-server-chi-gray.vercel.app/cars?email=${user.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setAllData(data));
+    axiosSecure.get(`/cars?email=${user.email}`).then((res) => {
+      setAllData(res.data);
+    });
+    // .then((data) => setAllData(data));
   };
 
   return (

@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div>
       <div
-        className="flex items-center justify-center  relative bg-cover bg-center min-h-[85vh]  container mx-auto  my-2 rounded-2xl  "
+        className="flex items-center justify-center  relative bg-cover bg-center min-h-[70vh]   container mx-auto  my-2 rounded-2xl  "
         style={{ backgroundImage: `url(${carBanner})` }}
       >
         {" "}
@@ -18,7 +18,7 @@ const Banner = () => {
           <div className="text-start lg:text-center ">
             <NavLink
               to="/available-cars"
-              className="btn z-50 font-bold  sm:p-5 sm:text-xl  -skew-x-1   bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-3xl border-amber-200"
+              className="btn z-50 font-bold  sm:p-5 sm:text-xl  -skew-x-1 border-none  bg-gradient-to-r from-amber-300  to-amber-500 my-2  rounded-3xl "
             >
               View Available Cars
             </NavLink>
