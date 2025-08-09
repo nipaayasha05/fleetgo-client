@@ -62,7 +62,7 @@ const Navbar = () => {
             isActive ? "border-2 text-black  border-amber-300 rounded-3xl " : ""
           }
         >
-          Top Cars
+          Best Rentals
         </NavLink>
       </li>
 
