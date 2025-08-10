@@ -30,7 +30,7 @@ const MyCar = () => {
 
   return (
     <div>
-      <h3 className="text-3xl font-bold text-center mt-5 py-5">
+      <h3 className="text-3xl text-amber-500 font-bold text-center mt-5 py-5">
         My Cars Collection
       </h3>
 

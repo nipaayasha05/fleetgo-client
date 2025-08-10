@@ -73,7 +73,7 @@ const MyCarList = ({ cars }) => {
           <div className="text-center py-5">
             <NavLink
               to="/add-car"
-              className="btn bg-gradient-to-r from-amber-300  to-amber-400 my-2 border-3 rounded-2xl border-amber-300 "
+              className="btn bg-gradient-to-r from-amber-300  to-amber-400 my-2 border-none rounded-3xl  text-black "
             >
               Add Car
             </NavLink>
@@ -132,7 +132,7 @@ const MyCarList = ({ cars }) => {
                   <th>
                     <button
                       onClick={() => navigate(`/car-details/${car._id}`)}
-                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl text-black  "
                     >
                       <FaInfoCircle size={18} />
                     </button>
@@ -143,7 +143,7 @@ const MyCarList = ({ cars }) => {
                         setUpdate(car);
                         document.getElementById("my_modal_2").showModal();
                       }}
-                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl  text-black "
                     >
                       <FaEdit size={18} />
                     </button>
@@ -151,7 +151,7 @@ const MyCarList = ({ cars }) => {
                   <th>
                     <button
                       onClick={() => handleDelete(car._id)}
-                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300  "
+                      className="btn bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl text-black "
                     >
                       <RiDeleteBin2Fill size={18} />
                     </button>

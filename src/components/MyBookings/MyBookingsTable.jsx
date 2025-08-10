@@ -65,10 +65,10 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
       <td
         className={`mt-5 sm:mt-10 ${
           status === "Confirmed"
-            ? "bg-green-400 text-white btn rounded-full"
+            ? "bg-green-400 text-white border-none btn rounded-full"
             : status === "Cancelled"
-            ? "bg-red-400 text-white btn rounded-full"
-            : "bg-green-400 text-white btn rounded-full"
+            ? "bg-red-400 border-none text-white btn rounded-full"
+            : "bg-green-400 border-none text-white btn rounded-full"
         }`}
       >
         {status}
@@ -79,7 +79,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
             setUpdate(myBooking);
             document.getElementById("my_modal_2").showModal();
           }}
-          className="btn bg-blue-600 text-white sm:font-bold sm:py-6 rounded-2xl flex gap-2"
+          className="btn bg-blue-600 text-white border-none sm:font-bold sm:py-6 rounded-2xl flex gap-2"
         >
           <ImCalendar size={22} color="white" />
           Modify <br />
@@ -89,7 +89,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
       <td>
         <button
           onClick={() => handleCancel()}
-          className="btn text-white flex gap-2 bg-red-500 sm:py-6 rounded-2xl"
+          className="btn border-none text-white flex gap-2 bg-red-500 sm:py-6 rounded-2xl"
         >
           <ImBin size={22} color="white" />
           Cancel

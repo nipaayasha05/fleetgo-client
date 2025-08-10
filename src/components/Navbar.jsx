@@ -220,8 +220,8 @@ const Navbar = () => {
                 to="/signin"
                 className={({ isActive }) =>
                   isActive
-                    ? "  "
-                    : "mr-4 btn   bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2 text-black rounded-3xl  "
+                    ? " btn   bg-gradient-to-r from-amber-300 border-none  to-amber-500 my-2 text-black rounded-3xl  "
+                    : "mr-4  "
                 }
               >
                 Log In

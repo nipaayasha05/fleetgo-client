@@ -16,8 +16,10 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
   const [allData, setAllData] = useState([]);
 
   useEffect(() => {
-    setAllData(myBooking);
-  }, []);
+    if (myBooking) {
+      setAllData(myBooking);
+    }
+  }, [myBooking]);
   useEffect(() => {
     if (startDate && endDate) {
       const days = differenceInDays(endDate, startDate) + 1;
@@ -122,7 +124,7 @@ const MyBookingsUpdate = ({ myBooking, setMyBooking }) => {
         </div>
         <div className="text-center">
           <input
-            className="btn    bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+            className="btn    bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl  text-black "
             type="submit"
             value="Confirm"
           />

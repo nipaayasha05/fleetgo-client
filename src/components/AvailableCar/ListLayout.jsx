@@ -5,7 +5,7 @@ const ListLayout = ({ ava }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="card card-side flex items-center bg-amber-50   shadow-sm m-3 ">
+    <div className="card text-black card-side flex items-center bg-amber-50   shadow-sm m-3 ">
       <figure className="flex-1 p-2">
         <img
           className=" w-[190px] h-[150px] rounded-box md:h-[250px] md:w-full lg:w-full lg:h-[350px] "
@@ -18,7 +18,7 @@ const ListLayout = ({ ava }) => {
             {ava.carModel}
           </h2>
 
-          <p className=" text-end text-amber-400 font-semibold">
+          <p className=" text-end text-amber-500  font-semibold">
             {ava.availability}
           </p>
         </div>
@@ -49,7 +49,7 @@ const ListLayout = ({ ava }) => {
         <div className="card-actions justify-end">
           <button
             onClick={() => navigate(`/car-details/${ava._id}`)}
-            className="btn  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-300 "
+            className="btn  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl  text-black "
           >
             Book Now
           </button>

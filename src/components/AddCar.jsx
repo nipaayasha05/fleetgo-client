@@ -34,7 +34,7 @@ const AddCar = () => {
   };
   return (
     <div className="container p-3   mx-auto py-5 mb-5">
-      <h3 className="text-3xl font-bold  text-center py-10">
+      <h3 className="text-3xl text-amber-500 font-bold  text-center py-10">
         Add Your Car Here
       </h3>
       <form
@@ -185,7 +185,7 @@ const AddCar = () => {
 
         <input
           type="submit"
-          className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-200 "
+          className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl text-black  "
           value="Submit"
         />
       </form>

@@ -37,7 +37,7 @@ const Update = ({ car, refetch }) => {
   return (
     <div className=" ">
       <div className=" py-5 mb-5">
-        <h3 className="text-3xl font-bold  text-center py-10">
+        <h3 className="text-3xl font-bold  text-center text-amber-500 py-10">
           Update Your Car Here
         </h3>
         <form
@@ -197,7 +197,7 @@ const Update = ({ car, refetch }) => {
 
           <input
             type="submit"
-            className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-3 rounded-2xl border-amber-200 "
+            className="btn w-full  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl  text-black "
             value="Submit"
           />
         </form>
