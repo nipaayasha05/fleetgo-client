@@ -68,7 +68,7 @@ const AuthProvider = ({ children }) => {
         );
         setLoading(false);
       } else {
-        console.log("erfetfe");
+        // console.log("erfetfe");
         await axios.post(
           "https://assignment-11-server-chi-gray.vercel.app/logout",
           {},

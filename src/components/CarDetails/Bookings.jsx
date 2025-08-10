@@ -52,7 +52,8 @@ const Bookings = ({ cars }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          axiosSecure.get("/cars").then((data) => console.log(data));
+          axiosSecure.get("/cars");
+          // .then((data) => console.log(data));
         }
 
         // navigate("/my-car");
