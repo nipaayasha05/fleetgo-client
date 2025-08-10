@@ -1,4 +1,4 @@
-# Project name : FleetGo
+# FleetGo
 
 - FleetGo is a car rental platform where users can browse available cars, view details and prices, select pickup and return dates, and instantly confirm bookings with real-time availability updates.
 
@@ -62,7 +62,7 @@ The project uses the following npm packages:
 4. Create a `.env` file and add your Firebase config variables
 5. Start the development server  
    `npm start`
-6. Open your browser and go to `http://localhost:3000`
+6. Open your browser and go to `https://assignment-11-server-chi-gray.vercel.app`
 
 ### Resources
 

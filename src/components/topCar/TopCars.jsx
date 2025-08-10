@@ -5,15 +5,19 @@ const TopCars = () => {
   const [topCars, setTopCars] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/topCar`)
+    fetch(`https://assignment-11-server-chi-gray.vercel.app/topCar`)
       .then((res) => res.json())
 
       .then((data) => setTopCars(data));
   }, []);
 
+  useEffect(() => {
+    document.title = "FleetGo | Best Rentals";
+  }, []);
+
   return (
     <div className="container mx-auto">
-      <h3 className="text-3xl font-bold   pt-5 text-center">
+      <h3 className="text-3xl font-bold text-amber-500  pt-5 text-center">
         Best Rentals: Top Picks for You
       </h3>
       <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-4 gap-7 py-5">

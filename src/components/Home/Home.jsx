@@ -43,11 +43,14 @@ const Home = () => {
       {" "}
       <Banner></Banner>
       <div>
-        <h3 className="text-3xl text-center font-bold py-5"> Why Choose Us?</h3>
+        <h3 className="text-3xl text-amber-500 text-center font-bold py-5">
+          {" "}
+          Why Choose Us?
+        </h3>
         <About about={about}></About>
       </div>
       <div className="  container mx-auto rounded-xl">
-        <h3 className="text-3xl   text-center font-bold py-5">
+        <h3 className="text-3xl  text-amber-500 text-center font-bold py-5">
           Latest Car Arrivals
         </h3>
         <div
@@ -60,13 +63,13 @@ const Home = () => {
         </div>
       </div>
       <div className="">
-        <h3 className="text-3xl text-center font-bold py-5">
+        <h3 className="text-3xl text-amber-500 text-center font-bold pb-5">
           Track Record of Success
         </h3>
         <Webs webs={webs}></Webs>
       </div>
       <div className=" ">
-        <h3 className="text-3xl text-center font-bold py-5">
+        <h3 className="text-3xl text-amber-500 text-center font-bold py-5">
           Limited-Time Deals
         </h3>
         <Offers offers={offers}></Offers>

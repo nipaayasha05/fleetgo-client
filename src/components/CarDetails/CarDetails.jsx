@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/AuthContext";
 const CarDetails = () => {
   const cars = useLoaderData();
   const { user } = use(AuthContext);
-  console.log(cars);
+  // console.log(cars);
   const { id } = useParams();
   const carsDetails = cars.find((car) => car._id == id);
 
@@ -37,11 +37,7 @@ const CarDetails = () => {
     <div className="container    mx-auto py-10">
       <div className=" m-5 flex bg-amber-50 flex-col lg:flex-row justify-center items-center shadow-gray-600  shadow-md p-5 rounded-xl space-y-5 lg:gap-10">
         <div className="flex-1">
-          <img
-            className="shadow-gray-600 shadow-lg rounded-xl"
-            src={photo}
-            alt=""
-          />
+          <img className=" shadow-xl rounded-xl" src={photo} alt="" />
         </div>
         <div className="flex-1  text-start lg::w-3xl sm:text-xl  ">
           <p className="sm:text-2xl font-bold text-black">{carModel}</p>

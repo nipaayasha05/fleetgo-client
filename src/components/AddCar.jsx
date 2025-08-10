@@ -16,7 +16,7 @@ const AddCar = () => {
     const addCar = Object.fromEntries(formData);
 
     axiosSecure
-      .post("http://localhost:3000/cars", addCar)
+      .post("https://assignment-11-server-chi-gray.vercel.app/cars", addCar)
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {
@@ -39,10 +39,10 @@ const AddCar = () => {
       </h3>
       <form
         onSubmit={handleSubmit}
-        className="fieldset shadow-sm rounded-box shadow-gray-700 p-3 w-[400px] sm:w-1/2 mx-auto "
+        className="fieldset shadow-xl rounded-box border-2 border-gray-50  p-3 w-[400px] text-black sm:w-1/2 mx-auto "
       >
         <div className=" space-y-2">
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4 hidden">
+          <fieldset className="fieldset bg-amber-50 border-gray-50 rounded-box border p-4 hidden">
             <label className="label  ">email</label>
             <input
               type="text"
@@ -52,7 +52,7 @@ const AddCar = () => {
               placeholder="Location"
             />
           </fieldset>
-          <fieldset className="fieldset bg-gray-100 border-base-300 rounded-box border p-4 hidden">
+          <fieldset className="fieldset bg-amber-50 border-gray-50 rounded-box border p-4 hidden">
             <label className="label ">Current Date</label>
 
             <input
@@ -64,7 +64,7 @@ const AddCar = () => {
               readOnly
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Car Model</label>
             <input
               type="text"
@@ -74,7 +74,7 @@ const AddCar = () => {
               required
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Daily Rental Price</label>
             <input
               type="text"
@@ -84,7 +84,7 @@ const AddCar = () => {
               required
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border w-full p-5">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border w-full p-5">
             <label className="label">Availability</label>
             <div className="flex gap-5 ">
               <div className="flex gap-2 text-gray-500  ">
@@ -110,7 +110,7 @@ const AddCar = () => {
               </div>
             </div>
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Vehicle Registration Number</label>
             <input
               type="text"
@@ -120,7 +120,7 @@ const AddCar = () => {
               required
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Features</label>
             <input
               type="text"
@@ -130,7 +130,7 @@ const AddCar = () => {
               required
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Brand</label>
             <input
               type="text"
@@ -140,7 +140,7 @@ const AddCar = () => {
               required
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Description</label>
             <textarea
               type="text"
@@ -150,7 +150,7 @@ const AddCar = () => {
               required
             ></textarea>
           </fieldset>
-          <fieldset className="fieldset text-black   bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black   bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">bookingCount</label>
             <input
               type="text"
@@ -161,7 +161,7 @@ const AddCar = () => {
               readOnly
             />
           </fieldset>
-          <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box border p-4">
+          <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box border p-4">
             <label className="label">Location</label>
             <input
               type="text"
@@ -172,7 +172,7 @@ const AddCar = () => {
             />
           </fieldset>
         </div>
-        <fieldset className="fieldset text-black  bg-gray-100 border-base-300 rounded-box my-2 border p-4">
+        <fieldset className="fieldset text-black  bg-amber-50 border-gray-50 rounded-box my-2 border p-4">
           <label className="label">Photo URL</label>
           <input
             type="text"

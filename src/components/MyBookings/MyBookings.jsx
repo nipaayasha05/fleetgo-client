@@ -27,7 +27,7 @@ const MyBookings = () => {
     <div className="container mx-auto">
       {myBookings.length == 0 ? (
         <div>
-          <p className="text-2xl font-bold text-center pt-5">
+          <p className="text-2xl text-amber-500 font-bold text-center pt-5">
             You haven't booked any cars yet!
           </p>
           <div className="text-center py-5">

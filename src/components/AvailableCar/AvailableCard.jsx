@@ -22,7 +22,9 @@ const AvailableCard = ({ cars, setCars }) => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/available-cars?search=${search}`)
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/available-cars?search=${search}`
+    )
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [search]);
@@ -55,7 +57,7 @@ const AvailableCard = ({ cars, setCars }) => {
 
   return (
     <div className="container mx-auto">
-      <h3 className="text-3xl font-bold text-center mt-10 py-5">
+      <h3 className="text-3xl text-amber-500 font-bold text-center mt-10 py-5">
         Available Cars
       </h3>
       <div className="flex sm:items-center justify-between">

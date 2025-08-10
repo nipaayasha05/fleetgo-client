@@ -59,7 +59,7 @@ const Bookings = ({ cars }) => {
       });
   };
 
-  // fetch("http://localhost:3000/cars").then(res=>res.json()).then(data=>console.log(data))
+  // fetch("https://assignment-11-server-chi-gray.vercel.app/cars").then(res=>res.json()).then(data=>console.log(data))
 
   return (
     <div className="space-y-2 m-5    sm:my-5 my-44 ">

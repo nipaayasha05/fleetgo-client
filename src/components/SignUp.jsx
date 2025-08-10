@@ -92,7 +92,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="card bg-amber-50 m-5    mx-auto my-30    max-w-sm shrink-0 shadow-2xl  ">
+    <div className="card bg-amber-50 m-5    mx-auto my-30    max-w-sm shrink-0 shadow-xl  ">
       <div className="card-body">
         <h1 className="text-5xl font-bold text-amber-500">Sign Up now!</h1>
         <form onSubmit={handleSignUp} className="fieldset">
@@ -135,7 +135,7 @@ const SignUp = () => {
           </button>
           <p className="font-semibold text-gray-700 text-center pt-5">
             Already Have An Account ?
-            <NavLink className=" text-amber-700" to="/signin">
+            <NavLink className=" text-amber-500" to="/signin">
               Log In
             </NavLink>
           </p>

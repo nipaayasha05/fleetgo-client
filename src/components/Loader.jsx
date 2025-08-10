@@ -6,7 +6,7 @@ const Loader = () => {
   return (
     <div className="flex justify-center items-center">
       <Lottie
-        style={{ width: "200px", height: "500px" }}
+        style={{ width: "100px", height: "200px" }}
         animationData={loader}
         loop={true}
       ></Lottie>{" "}

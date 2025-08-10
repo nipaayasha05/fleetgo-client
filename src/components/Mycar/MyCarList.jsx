@@ -67,7 +67,7 @@ const MyCarList = ({ cars }) => {
     <div className="container hover:text-black mx-auto">
       {cars.length == 0 ? (
         <div>
-          <p className="text-2xl font-bold text-center">
+          <p className="text-2xl text-amber-500 font-bold text-center">
             You haven't added any cars yet!
           </p>
           <div className="text-center py-5">
