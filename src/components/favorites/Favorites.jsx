@@ -11,6 +11,9 @@ const Favorites = () => {
   useEffect(() => {
     console.log("Favorites updated:", favorites);
   }, [favorites]);
+  useEffect(() => {
+    document.title = "FleetGo | my-favorites";
+  }, []);
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -66,7 +69,11 @@ const Favorites = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="m-5 grid md:grid-cols-2 lg:grid-cols-4 gap-7 py-5">
+      <h3 className="text-3xl text-amber-500 font-bold text-center mt-5 py-5">
+        My Favorites
+      </h3>
+
+      <div className="m-5 grid md:grid-cols-2 lg:grid-cols-4 gap-7 py-">
         {favorites.map((favorite) => (
           <Favorite
             key={favorite._id}

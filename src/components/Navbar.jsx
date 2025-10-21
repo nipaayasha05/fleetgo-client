@@ -30,8 +30,10 @@ const Navbar = () => {
   }, [theme]);
 
   const { user, handleLogOut } = use(AuthContext);
+
   // const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [profileOpen, setProfileOpen] = useState(false);
 
   const links = (
     <>
@@ -122,6 +124,9 @@ const Navbar = () => {
       )}
     </>
   );
+  const handleProfileToggle = () => {
+    setProfileOpen(!profileOpen);
+  };
 
   const handleUserLogOut = () => {
     handleLogOut();
@@ -205,7 +210,8 @@ const Navbar = () => {
           <div className="relative group">
             {user && (
               <img
-                className={`w-13 rounded-full mr-2 hover:${user.displayName}`}
+                onClick={handleProfileToggle}
+                className={`w-13 rounded-full mr-2 cursor-pointer hover:${user.displayName}`}
                 referrerPolicy="no-referrer"
                 src={user?.photoURL}
                 alt=""
@@ -214,6 +220,19 @@ const Navbar = () => {
             <p className="absolute invisible   group-hover:visible -mt-3 ml-1">
               {user?.displayName}
             </p>
+            {user && profileOpen && (
+              <ul className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50 ">
+                <li>
+                  <NavLink
+                    to="/my-profile"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={() => setProfileOpen(false)}
+                  >
+                    Profile
+                  </NavLink>
+                </li>
+              </ul>
+            )}
           </div>
 
           {user ? (

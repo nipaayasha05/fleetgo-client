@@ -17,6 +17,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../components/ErrorPage";
 import TopCars from "../components/topCar/TopCars";
 import Favorites from "../components/favorites/favorites";
+// import UpdateProfile from "../components/updateProfile/UpdateProfile";
+import Profile from "../components/updateProfile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +70,10 @@ const router = createBrowserRouter([
             <Favorites />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "my-profile",
+        element: <Profile />,
       },
       {
         path: "car-details/:id",

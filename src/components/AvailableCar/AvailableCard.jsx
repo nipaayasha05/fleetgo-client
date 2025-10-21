@@ -8,6 +8,7 @@ const AvailableCard = ({ cars, setCars }) => {
   const [available, setAvailable] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
   // console.log(ava);
   useEffect(() => {
     const availableCars = cars.filter(
@@ -52,6 +53,9 @@ const AvailableCard = ({ cars, setCars }) => {
       setCars(sortedByDate);
     }
   };
+  const filteredAvailable = available.filter((car) =>
+    selectedLocation ? car.location === selectedLocation : true
+  );
 
   return (
     <div className="container mx-auto">
@@ -60,27 +64,47 @@ const AvailableCard = ({ cars, setCars }) => {
       </h3>
       <div className="flex sm:items-center justify-between">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <details className="dropdown ml-3 ">
-            <summary className="btn w-32 h-12 m-1  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl text-black ">
-              Sort By {sort ? sort : ""}
-            </summary>
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-              <li>
-                <a onClick={() => handleSort("Highest Price")}>
-                  {" "}
-                  Highest Price
-                </a>
-              </li>
-              <li>
-                <a onClick={() => handleSort("Lowest Price")}> Lowest Price</a>
-              </li>
-              <li>
-                <a onClick={() => handleSort("Newest First")}>Newest First </a>
-              </li>
-            </ul>
-          </details>
-
-          <label className="input m-1">
+          <div className="flex items-center">
+            <details className="dropdown ml-3 ">
+              <summary className="btn w-32 h-12 m-1  bg-gradient-to-r from-amber-300  to-amber-500 my-2 border-none rounded-3xl text-black ">
+                Sort By {sort ? sort : ""}
+              </summary>
+              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                <li>
+                  <a onClick={() => handleSort("Highest Price")}>
+                    {" "}
+                    Highest Price
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => handleSort("Lowest Price")}>
+                    {" "}
+                    Lowest Price
+                  </a>
+                </li>
+                <li>
+                  <a onClick={() => handleSort("Newest First")}>
+                    Newest First{" "}
+                  </a>
+                </li>
+              </ul>
+            </details>
+            <select
+              className="btn w-32 h-12 m-1 bg-gradient-to-r from-amber-300 to-amber-500 my-2 border-none rounded-3xl text-black appearance-none"
+              value={selectedLocation}
+              onChange={(e) => setSelectedLocation(e.target.value)}
+            >
+              <option value="">All Locations</option>
+              {Array.from(new Set(available.map((car) => car.location)))
+                .sort()
+                .map((location) => (
+                  <option key={location} value={location}>
+                    {location}
+                  </option>
+                ))}
+            </select>
+          </div>
+          <label className="input m-1 ml-5  flex justify-center items-center">
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -100,13 +124,13 @@ const AvailableCard = ({ cars, setCars }) => {
             <input
               type="search"
               onChange={(e) => setSearch(e.target.value)}
-              className="grow"
+              className="grow  "
               placeholder="Search"
             />
           </label>
         </div>
 
-        <div className="text-end">
+        <div className="text-end flex ">
           <button
             onClick={handleToggle}
             className="btn h-12 m-3 bg-gradient-to-r from-amber-300  to-amber-500 my-2  border-none rounded-3xl text-black  "
@@ -117,13 +141,13 @@ const AvailableCard = ({ cars, setCars }) => {
       </div>
       {toggle ? (
         <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-4 gap-7 py-5">
-          {available.map((ava) => (
+          {filteredAvailable.map((ava) => (
             <GridLayout key={ava._id} ava={ava}></GridLayout>
           ))}
         </div>
       ) : (
         <div className="space-y-7 py-10">
-          {available.map((ava) => (
+          {filteredAvailable.map((ava) => (
             <ListLayout key={ava._id} ava={ava}></ListLayout>
           ))}
         </div>

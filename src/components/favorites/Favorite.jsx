@@ -39,7 +39,7 @@ const Favorite = ({ favorite, handleRemove }) => {
         <div className="card-body text-black  sm:text-xl bg-amber-50">
           <div className="sm:h-10/12">
             <div className="flex  items-center gap-10  ">
-              <h2 className=" sm:text-2xl sm:font-bold card-title">
+              <h2 className=" sm:text-2xl sm:font-bold card-title line-clamp-1">
                 {car.carModel}
               </h2>
 
@@ -47,7 +47,7 @@ const Favorite = ({ favorite, handleRemove }) => {
                 {car.availability}
               </p>
             </div>
-            <p className="line-clamp-2">{car.description}</p>
+            <p className="line-clamp-1">{car.description}</p>
             <div className="text-start">
               <p>
                 <span className="font-semibold">Brand</span> : {car.brand}{" "}
@@ -87,9 +87,12 @@ const Favorite = ({ favorite, handleRemove }) => {
         <div>
           <button onClick={handleFavorite} className="absolute top-2 right-2">
             {isFavorite ? (
-              <FaHeart className="text-red-500 text-2xl" />
+              <FaHeart className="text-red-500 text-2xl cursor-pointer" />
             ) : (
-              <FaRegHeart className="text-gray-500 text-2xl" color="red" />
+              <FaRegHeart
+                className="text-gray-500 text-2xl cursor-pointer"
+                color="red"
+              />
             )}
           </button>
         </div>

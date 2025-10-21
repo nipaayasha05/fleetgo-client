@@ -10,6 +10,7 @@ const MyCar = () => {
   const axiosSecure = useAxiosSecure();
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [totalcars, setTotalcars] = useState(0);
 
   // console.log(user.accessToken);
 
@@ -18,13 +19,27 @@ const MyCar = () => {
   }, []);
 
   useEffect(() => {
-    if (user?.email) {
-      axiosSecure.get(`/cars?email=${user.email}`).then((res) => {
-        setCars(res.data);
-      });
-      setLoading(false);
-    }
+    const fetchData = async () => {
+      if (!user.email) return;
+      setLoading(true);
+      try {
+        const carsRes = await axiosSecure.get(`/cars?email=${user.email}`);
+        setCars(carsRes.data);
+
+        const countRes = await axiosSecure.get(
+          `/cars-pagination?email=${user.email}`
+        );
+        setTotalcars(countRes.data.count);
+      } catch (error) {
+        console.error("Error");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
   }, [user?.email]);
+
+  // const
 
   if (loading) return <Loader />;
 

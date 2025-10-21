@@ -76,9 +76,15 @@ const FavoriteButton = ({ car }) => {
       {" "}
       <button onClick={handleFavorite} className="absolute top-2 right-2">
         {isFavorite ? (
-          <FaHeart className="text-red-500 text-2xl" color="red" />
+          <FaHeart
+            className="text-red-500 text-2xl cursor-pointer"
+            color="red"
+          />
         ) : (
-          <FaRegHeart className="text-gray-500 text-2xl" color="red" />
+          <FaRegHeart
+            className="text-gray-500 text-2xl cursor-pointer"
+            color="red"
+          />
         )}
       </button>
     </div>
