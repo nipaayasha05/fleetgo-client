@@ -39,6 +39,18 @@ const SignIn = () => {
     googleSignIn(auth, provider)
       .then((result) => {
         const currentUser = result.user;
+        const userInfo = {
+          name: currentUser.displayName,
+          email: currentUser.email,
+          image: currentUser.photoURL,
+        };
+        fetch("http://localhost:3000/userSocial", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        });
         toast.success("User LogIn Successfully");
         setSuccess(true);
         setErrorMessage("");

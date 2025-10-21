@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import FavoriteButton from "../AvailableCar/FavoriteButton";
 
 const TopCar = ({ topCar }) => {
   const navigate = useNavigate();
@@ -59,6 +60,9 @@ const TopCar = ({ topCar }) => {
             Book Now
           </button>
         </div>
+      </div>
+      <div>
+        <FavoriteButton car={topCar} />
       </div>
     </div>
   );

@@ -47,9 +47,7 @@ const MyBookingsTable = ({ myBooking, index, setUpdate, setMyBooking }) => {
 
   const refetch = () => {
     axiosSecure
-      .get(
-        `https://assignment-11-server-chi-gray.vercel.app/bookings/?email=${email}`
-      )
+      .get(`http://localhost:3000/bookings/?email=${email}`)
 
       .then((res) => setMyBooking(res.data));
   };

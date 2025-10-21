@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { useNavigate } from "react-router";
+import FavoriteButton from "./FavoriteButton";
 
 const GridLayout = ({ ava }) => {
   const navigate = useNavigate();
@@ -58,6 +59,10 @@ const GridLayout = ({ ava }) => {
             Book Now
           </button>
         </div>
+      </div>
+      {/* favorite button */}
+      <div>
+        <FavoriteButton car={ava} />
       </div>
     </div>
   );

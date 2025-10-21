@@ -9,11 +9,21 @@ import { AuthContext } from "../../context/AuthContext";
 const CarDetails = () => {
   const cars = useLoaderData();
   const { user } = use(AuthContext);
+  const [bookings, setBookings] = useState(null);
+  useEffect(() => {
+    document.title = "FleetGo | Car Details";
+  }, []);
   // console.log(cars);
   const { id } = useParams();
-  const carsDetails = cars.find((car) => car._id == id);
+  const carsDetails = cars.find((car) => car._id === id);
+  if (!carsDetails) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-red-500 font-bold text-xl">Car not found!</p>
+      </div>
+    );
+  }
 
-  const [bookings, setBookings] = useState(null);
   const {
     availability,
 
@@ -28,10 +38,6 @@ const CarDetails = () => {
   } = carsDetails;
   const featuresList = features.split(",");
   // console.log(featuresList);
-
-  useEffect(() => {
-    document.title = "FleetGo | Car Details";
-  }, []);
 
   return (
     <div className="container    mx-auto py-10">

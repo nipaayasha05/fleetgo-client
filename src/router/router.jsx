@@ -16,6 +16,7 @@ import Loader from "../components/Loader";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../components/ErrorPage";
 import TopCars from "../components/topCar/TopCars";
+import Favorites from "../components/favorites/favorites";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () =>
-          fetch("https://assignment-11-server-chi-gray.vercel.app/recentCar"),
+        loader: () => fetch("http://localhost:3000/recentCar"),
         hydrateFallbackElement: <Loader></Loader>,
       },
       {
@@ -62,11 +62,16 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "my-favorites",
+        element: (
+          <PrivateRoute>
+            <Favorites />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "car-details/:id",
-        loader: () =>
-          fetch(
-            `https://assignment-11-server-chi-gray.vercel.app/available-cars`
-          ),
+        loader: () => fetch(`http://localhost:3000/available-cars`),
         element: <CarDetails></CarDetails>,
         hydrateFallbackElement: <Loader></Loader>,
       },

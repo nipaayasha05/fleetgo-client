@@ -105,6 +105,19 @@ const Navbar = () => {
               My Bookings
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/my-favorites"
+              className={({ isActive }) =>
+                isActive
+                  ? "border-2 text-black border-amber-300 rounded-3xl  "
+                  : ""
+              }
+            >
+              {" "}
+              Favorites
+            </NavLink>
+          </li>
         </>
       )}
     </>

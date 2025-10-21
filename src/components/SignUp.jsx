@@ -60,8 +60,22 @@ const SignUp = () => {
             setUser({ ...user, displayName: name, photoURL: photo });
           })
           .catch((error) => {
-            setUser(user);
+            setUser({ ...user, displayName: name, photoURL: photo });
           });
+        // send to backend
+        const userdata = {
+          name,
+          email,
+          image: photo,
+        };
+        fetch("http://localhost:3000/user", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userdata),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log("user stored", data))
+          .catch((error) => console.log("Error", error));
 
         // console.log(res.user);
         toast.success("User LogIn Successfully");
@@ -80,6 +94,19 @@ const SignUp = () => {
   const handleGoogleSignIn = () => {
     googleSignIn(auth, provider)
       .then((result) => {
+        const currentUser = result.user;
+        const userInfo = {
+          name: currentUser.displayName,
+          email: currentUser.email,
+          image: currentUser.photoURL,
+        };
+        fetch("http://localhost:3000/userSocial", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        });
         toast.success("User LogIn Successfully");
         setSuccess(true);
         setErrorMessage("");

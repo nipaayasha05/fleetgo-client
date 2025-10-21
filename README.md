@@ -62,7 +62,7 @@ The project uses the following npm packages:
 4. Create a `.env` file and add your Firebase config variables
 5. Start the development server  
    `npm start`
-6. Open your browser and go to `https://assignment-11-server-chi-gray.vercel.app`
+6. Open your browser and go to `http://localhost:3000`
 
 ### Resources
 

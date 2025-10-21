@@ -6,6 +6,7 @@ import About from "./About";
 
 import Offers from "./Offers";
 import Webs from "./Webs";
+// import RecentlyViewed from "./RecentlyViewed";
 
 const Home = () => {
   const recentCars = useLoaderData();
@@ -61,6 +62,12 @@ const Home = () => {
             <RecentCar car={car} key={car._id}></RecentCar>
           ))}
         </div>
+        {/* <div>
+          <h3 className="text-3xl text-amber-500 text-center font-bold pb-5">
+            Recently Viewed Cars
+          </h3>
+          <RecentlyViewed />
+        </div> */}
       </div>
       <div className="">
         <h3 className="text-3xl text-amber-500 text-center font-bold pb-5">

@@ -1,8 +1,10 @@
 import { formatDistance, parse } from "date-fns";
 import React from "react";
 import { useNavigate } from "react-router";
+import FavoriteButton from "../AvailableCar/FavoriteButton";
 
 const RecentCar = ({ car }) => {
+  // console.log(car);
   const navigate = useNavigate();
   const {
     availability,
@@ -59,6 +61,9 @@ const RecentCar = ({ car }) => {
         >
           See More
         </button>
+      </div>
+      <div>
+        <FavoriteButton car={car} />
       </div>
     </div>
   );

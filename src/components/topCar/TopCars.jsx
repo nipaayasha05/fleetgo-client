@@ -5,7 +5,7 @@ const TopCars = () => {
   const [topCars, setTopCars] = useState([]);
 
   useEffect(() => {
-    fetch(`https://assignment-11-server-chi-gray.vercel.app/topCar`)
+    fetch(`http://localhost:3000/topCar`)
       .then((res) => res.json())
 
       .then((data) => setTopCars(data));

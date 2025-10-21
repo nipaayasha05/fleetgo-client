@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import FavoriteButton from "./FavoriteButton";
 
 const ListLayout = ({ ava }) => {
   const navigate = useNavigate();
@@ -54,6 +55,10 @@ const ListLayout = ({ ava }) => {
             Book Now
           </button>
         </div>
+      </div>
+      {/* favorite button */}
+      <div>
+        <FavoriteButton car={ava} />
       </div>
     </div>
   );
