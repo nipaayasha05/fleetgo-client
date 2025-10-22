@@ -15,10 +15,13 @@ const Favorite = ({ favorite, handleRemove }) => {
   const handleFavorite = () => {
     if (!user) return;
     if (isFavorite) {
-      fetch(`http://localhost:3000/favorites/${favoriteId}`, {
-        method: "DELETE",
-        credentials: "include",
-      })
+      fetch(
+        `https://assignment-11-server-chi-gray.vercel.app/favorites/${favoriteId}`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        }
+      )
         .then((res) => {
           if (res.ok) {
             setIsFavorite(false);

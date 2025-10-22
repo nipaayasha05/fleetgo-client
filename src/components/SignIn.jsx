@@ -44,7 +44,7 @@ const SignIn = () => {
           email: currentUser.email,
           image: currentUser.photoURL,
         };
-        fetch("http://localhost:3000/userSocial", {
+        fetch("https://assignment-11-server-chi-gray.vercel.app/userSocial", {
           method: "POST",
           headers: {
             "content-type": "application/json",

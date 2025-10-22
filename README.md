@@ -6,7 +6,7 @@
 
 ## Screenshots
 
-![Car-Rental Screenshot](https://i.ibb.co/5xhQrFRH/Screenshot-2025-08-08-123928.png)
+![Car-Rental Screenshot](https://ibb.co.com/vxSvbLPK)
 
 ## Description :
 
@@ -62,7 +62,7 @@ The project uses the following npm packages:
 4. Create a `.env` file and add your Firebase config variables
 5. Start the development server  
    `npm start`
-6. Open your browser and go to `http://localhost:3000`
+6. Open your browser and go to `https://assignment-11-server-chi-gray.vercel.app`
 
 ### Resources
 

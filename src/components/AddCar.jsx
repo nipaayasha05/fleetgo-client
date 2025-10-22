@@ -16,7 +16,7 @@ const AddCar = () => {
     const addCar = Object.fromEntries(formData);
 
     axiosSecure
-      .post("http://localhost:3000/cars", addCar)
+      .post("https://assignment-11-server-chi-gray.vercel.app/cars", addCar)
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {

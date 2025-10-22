@@ -23,7 +23,7 @@ const Favorites = () => {
         console.log("Fetching favorites for:", user?.email);
 
         const res = await fetch(
-          `http://localhost:3000/favorites?email=${user?.email}`,
+          `https://assignment-11-server-chi-gray.vercel.app/favorites?email=${user?.email}`,
           {
             headers: {
               "Content-Type": "application/json",

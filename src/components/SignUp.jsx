@@ -68,7 +68,7 @@ const SignUp = () => {
           email,
           image: photo,
         };
-        fetch("http://localhost:3000/user", {
+        fetch("https://assignment-11-server-chi-gray.vercel.app/user", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userdata),
@@ -100,7 +100,7 @@ const SignUp = () => {
           email: currentUser.email,
           image: currentUser.photoURL,
         };
-        fetch("http://localhost:3000/userSocial", {
+        fetch("https://assignment-11-server-chi-gray.vercel.app/userSocial", {
           method: "POST",
           headers: {
             "content-type": "application/json",

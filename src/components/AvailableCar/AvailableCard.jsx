@@ -23,7 +23,9 @@ const AvailableCard = ({ cars, setCars }) => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/available-cars?search=${search}`)
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/available-cars?search=${search}`
+    )
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, [search]);
@@ -53,6 +55,7 @@ const AvailableCard = ({ cars, setCars }) => {
       setCars(sortedByDate);
     }
   };
+  // location
   const filteredAvailable = available.filter((car) =>
     selectedLocation ? car.location === selectedLocation : true
   );

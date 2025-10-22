@@ -12,9 +12,12 @@ const FavoriteButton = ({ car }) => {
   //  checcck car if already in favorite
   useEffect(() => {
     if (!userEmail) return;
-    fetch(`http://localhost:3000/favorites?email=${userEmail}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://assignment-11-server-chi-gray.vercel.app/favorites?email=${userEmail}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -41,10 +44,13 @@ const FavoriteButton = ({ car }) => {
 
     if (isFavorite) {
       // remove
-      fetch(`http://localhost:3000/favorites/${favoriteId}`, {
-        method: "DELETE",
-        credentials: "include",
-      })
+      fetch(
+        `https://assignment-11-server-chi-gray.vercel.app/favorites/${favoriteId}`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        }
+      )
         .then((res) => {
           setIsFavorite(false);
           //   setFavoriteId(null);
@@ -52,7 +58,7 @@ const FavoriteButton = ({ car }) => {
         .catch((error) => console.log(error));
     } else {
       if (!car._id) return;
-      fetch(`http://localhost:3000/favorites`, {
+      fetch(`https://assignment-11-server-chi-gray.vercel.app/favorites`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",

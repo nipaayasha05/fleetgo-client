@@ -10,12 +10,16 @@ import SignIn from "./components/SignIn.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import router from "./router/router.jsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <Toaster />
-      <RouterProvider router={router}></RouterProvider>
+      <Provider store={store}>
+        <Toaster />
+        <RouterProvider router={router}></RouterProvider>
+      </Provider>
     </AuthProvider>
   </StrictMode>
 );

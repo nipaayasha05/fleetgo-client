@@ -81,7 +81,7 @@ const Profile = () => {
               type="text"
               name="fullname"
               defaultValue={user?.displayName}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 text-black"
+              className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 text-black"
               placeholder="Enter your name"
             />
           </div>
@@ -108,7 +108,7 @@ const Profile = () => {
               type="text"
               name="photo"
               defaultValue={user?.photoURL}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 text-black"
+              className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 text-black"
               placeholder="Enter photo URL"
             />
           </div>
