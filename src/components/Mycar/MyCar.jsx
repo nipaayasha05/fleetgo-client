@@ -12,8 +12,6 @@ const MyCar = () => {
   const [loading, setLoading] = useState(true);
   const [totalcars, setTotalcars] = useState(0);
 
-  // console.log(user.accessToken);
-
   useEffect(() => {
     document.title = "FleetGo | My Car";
   }, []);
