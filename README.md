@@ -39,8 +39,8 @@ FleetGo is a comprehensive car rental platform that allows users to book cars in
 
 The project uses the following npm packages:
 
-- @lottiefiles/lottie-player
-- @tailwindcss/vite
+- lottiefiles/lottie-player
+- tailwindcss/vite
 - axios
 - daisyui
 - date-fns
@@ -69,10 +69,10 @@ The project uses the following npm packages:
 4. Create a `.env` file and add your Firebase config variables
 5. Start the development server  
    `npm start`
-6. Open your browser and go to `http://localhost:3000`
+6. Open your browser and go to `http://localhost:5173`
 
 ### Resources
 
-- [GitHub Repository](https://github.com/nipaayasha05/car-rental-project)
+- [GitHub Repository](https://github.com/nipaayasha05/fleetgo-client)
 - [Server Repository](https://github.com/nipaayasha05/fleetgo-server)
 - [Live Demo](https://sprightly-moonbeam-219a97.netlify.app/)
