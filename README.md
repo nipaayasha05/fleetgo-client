@@ -25,8 +25,15 @@ FleetGo is a comprehensive car rental platform that allows users to book cars in
 ## Technologies Used
 
 - React.js
-- Firebase
+- React Router
 - Tailwind CSS
+- DaisyUI
+- Firebase Authentication
+- Axios
+- Date-fns
+- Node.js
+- Express.js
+- MongoDB
 
 ## Dependencies
 
@@ -54,17 +61,18 @@ The project uses the following npm packages:
 ### How to Run Locally
 
 1. Clone the repository  
-   `git clone https://github.com/yourusername/greenspire.git`
+   `git clone https://github.com/nipaayasha05/fleetgo-client.git`
 2. Navigate to the project directory  
-   `cd greenspire`
+   `cd fleetgo-client`
 3. Install dependencies  
    `npm install`
 4. Create a `.env` file and add your Firebase config variables
 5. Start the development server  
    `npm start`
-6. Open your browser and go to `https://assignment-11-server-chi-gray.vercel.app`
+6. Open your browser and go to `http://localhost:3000`
 
 ### Resources
 
 - [GitHub Repository](https://github.com/nipaayasha05/car-rental-project)
+- [Server Repository](https://github.com/nipaayasha05/fleetgo-server)
 - [Live Demo](https://sprightly-moonbeam-219a97.netlify.app/)
